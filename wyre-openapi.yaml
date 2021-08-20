@@ -364,7 +364,7 @@ paths:
       servers:
         - url: 'https://api.testwyre.com'
           variables: {}
-  /v3/orders/full:
+  /v3/orders/list:
     get:
       tags:
         - Hosted Checkout
@@ -416,24 +416,27 @@ paths:
                         accountId: AC_QXWVTRWPM3U
                         paymentNetworkErrorCode: ISO_8583_05
                         internalErrorCode: DO_NOT_HONOR
-                      - id: WO_L74RZHNL4BV
-                        createdAt: 1586716453000
-                        owner: 'account:AC_QXWVTRWPM3U'
-                        status: FAILED
-                        orderType: INTERNATIONAL
-                        sourceAmount: 208.26
-                        purchaseAmount: 200
+                        walletType: TOKENIZED_PAYMENT_METHOD
+                      - id: WO_LCMCZRD6RJ
+                        createdAt: 1605882139000
+                        owner: 'account:AC_HNW9ED7XARH'
+                        status: PROCESSING
+                        orderType: DOMESTIC
+                        sourceAmount: '15'
+                        purchaseAmount: '9.48'
                         sourceCurrency: USD
                         destCurrency: ETH
-                        transferId: null
-                        dest: 'ethereum:0xea8dd9381571D618119912AF553CE81c3c0dFF12'
-                        authCodesRequested: false
-                        errorCategory: GENERAL
-                        errorMessage: We are unable to process your order at this time.
+                        transferId: TF_FWVEF7N9Q37
+                        dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
+                        authCodesRequested: true
+                        errorCategory: null
+                        errorCode: null
+                        errorMessage: null
                         failureReason: null
-                        accountId: AC_QXWVTRWPM3U
-                        paymentNetworkErrorCode: ISO_8583_05
-                        internalErrorCode: DO_NOT_HONOR
+                        accountId: AC_HNW9ED7XARH
+                        internalErrorCode: null
+                        paymentNetworkErrorCode: null
+                        walletType: TOKENIZED_PAYMENT_METHOD
       deprecated: false
       servers:
         - url: 'https://api.testwyre.com'
@@ -6732,18 +6735,21 @@ components:
           USD: 0.45
     GetWalletOrderResponse:
       title: GetWalletOrderResponse
-      required:
-        - id
-        - createdAt
-        - owner
-        - status
-        - sourceAmount
-        - sourceCurrency
-        - destCurrency
-        - dest
-        - walletType
-        - accountId
       type: object
+      description: ''
+      example:
+        id: WO_ELTUVYCAFPG
+        createdAt: 1576263687643
+        owner: 'account:AC_RNWQNRAZFPC'
+        status: RUNNING_CHECKS
+        sourceAmount: 1.84
+        sourceCurrency: USD
+        destCurrency: ETH
+        dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
+        walletType: APPLE_PAY
+        transferId: ''
+        errorMessage: ''
+        accountId: AC_RNWQNRAZFPC
       properties:
         id:
           type: string
@@ -6776,6 +6782,9 @@ components:
         walletType:
           type: string
           example: APPLE_PAY
+          enum:
+            - TOKENIZED_PAYMENT_METHOD
+            - APPLE_PAY
         transferId:
           type: string
           description: 'Once status is `COMPLETE` or `PROCESSING`, the transferId should be provided (otherwise it will be `null`)'
@@ -6787,34 +6796,41 @@ components:
         accountId:
           type: string
           example: AC_RNWQNRAZFPC
-      description: ''
-      example:
-        id: WO_ELTUVYCAFPG
-        createdAt: 1576263687643
-        owner: 'account:AC_RNWQNRAZFPC'
-        status: RUNNING_CHECKS
-        sourceAmount: 1.84
-        sourceCurrency: USD
-        destCurrency: ETH
-        dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-        walletType: APPLE_PAY
-        transferId: ''
-        errorMessage: ''
-        accountId: AC_RNWQNRAZFPC
+      required:
+        - id
+        - createdAt
+        - owner
+        - status
+        - sourceAmount
+        - sourceCurrency
+        - destCurrency
+        - dest
+        - walletType
+        - accountId
     GetWalletOrderFullResponse:
       title: GetWalletOrderFullResponse
       allOf:
         - $ref: '#/components/schemas/GetWalletOrderResponse'
-        - required:
-            - orderType
-            - purchaseAmount
-            - authCodeRequested
-            - errorCategory
-            - errorMessage
-            - failureReason
-            - paymentNetworkErrorCode
-            - internalErrorCode
-          type: object
+        - type: object
+          example:
+            id: WO_L74RZHNL4BV
+            createdAt: 1586716453000
+            owner: 'account:AC_QXWVTRWPM3U'
+            status: FAILED
+            orderType: INTERNATIONAL
+            sourceAmount: 208.26
+            purchaseAmount: 200
+            sourceCurrency: USD
+            destCurrency: ETH
+            transferId: ''
+            dest: 'ethereum:0xea8dd9381571D618119912AF553CE81c3c0dFF12'
+            authCodesRequested: false
+            errorCategory: GENERAL
+            errorMessage: We are unable to process your order at this time.
+            failureReason: ''
+            accountId: AC_QXWVTRWPM3U
+            paymentNetworkErrorCode: ISO_8583_05
+            internalErrorCode: DO_NOT_HONOR
           properties:
             orderType:
               type: string
@@ -6840,25 +6856,22 @@ components:
             internalErrorCode:
               type: string
               example: DO_NOT_HONOR
-          example:
-            id: WO_L74RZHNL4BV
-            createdAt: 1586716453000
-            owner: 'account:AC_QXWVTRWPM3U'
-            status: FAILED
-            orderType: INTERNATIONAL
-            sourceAmount: 208.26
-            purchaseAmount: 200
-            sourceCurrency: USD
-            destCurrency: ETH
-            transferId: ''
-            dest: 'ethereum:0xea8dd9381571D618119912AF553CE81c3c0dFF12'
-            authCodesRequested: false
-            errorCategory: GENERAL
-            errorMessage: We are unable to process your order at this time.
-            failureReason: ''
-            accountId: AC_QXWVTRWPM3U
-            paymentNetworkErrorCode: ISO_8583_05
-            internalErrorCode: DO_NOT_HONOR
+            walletType:
+              type: string
+              enum:
+                - TOKENIZED_PAYMENT_METHOD
+                - APPLE_PAY
+              example: TOKENIZED_PAYMENT_METHOD
+          required:
+            - orderType
+            - purchaseAmount
+            - authCodeRequested
+            - errorCategory
+            - errorMessage
+            - failureReason
+            - paymentNetworkErrorCode
+            - internalErrorCode
+            - walletType
       description: ''
     ListOrdersPaginatedResponse:
       title: ListOrdersPaginatedResponse
