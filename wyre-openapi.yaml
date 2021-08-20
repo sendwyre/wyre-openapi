@@ -273,6 +273,7 @@ paths:
       servers:
         - url: 'https://api.testwyre.com'
           variables: {}
+      security: []
   '/v3/orders/{orderId}':
     get:
       tags:
