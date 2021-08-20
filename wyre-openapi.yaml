@@ -3251,6 +3251,7 @@ paths:
                       BTC: mx2H9Jo8jJ8FJC6wStMYyCoR3f2b1ib9Sq
                       AVAX: X-fuji19u0crzjtp9ulvauqj2dxfgsepagnrvkycdkynw
                     totalBalances: {}
+                    kycHash: 9af12485185f20a001e8d20e9a3e0790e6408de836765d184e5be1489dd4e5a0
                     availableBalances: {}
                     profileFields:
                       - fieldType: EMAIL
@@ -5441,111 +5442,7 @@ components:
             notes: User Wallet 3
     GetAccountResponse:
       title: GetAccountResponse
-      required:
-        - id
-        - status
-        - type
-        - country
-        - createdAt
-        - updatedAt
-        - depositAddresses
-        - totalBalances
-        - availableBalances
-        - profileFields
       type: object
-      properties:
-        id:
-          type: string
-          description: The account identifier
-          example: AC_6HRPC9HP9EW
-        status:
-          type: string
-          example: PENDING
-        type:
-          type: string
-          example: INDIVIDUAL
-        country:
-          type: string
-          example: US
-        createdAt:
-          type: integer
-          format: int64
-          example: 1628186047000
-        updatedAt:
-          type: integer
-          format: int64
-          example: 1628186048000
-        depositAddresses:
-          $ref: '#/components/schemas/DepositAddresses'
-        totalBalances:
-          $ref: '#/components/schemas/TotalBalances11'
-        availableBalances:
-          $ref: '#/components/schemas/AvailableBalancesBTCETH'
-        profileFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProfileField'
-          example:
-            - fieldType: EMAIL
-              value: crashb@test.com
-              note: null
-              status: APPROVED
-              updatedAt: 1628186048000
-              fieldId: individualEmail
-            - fieldType: CELLPHONE
-              value: null
-              note: null
-              status: OPEN
-              updatedAt: null
-              fieldId: individualCellphoneNumber
-            - fieldType: STRING
-              value: Crash Bandicoot
-              note: null
-              status: PENDING
-              updatedAt: 1628186047848
-              fieldId: individualLegalName
-            - fieldType: STRING
-              value: null
-              note: null
-              status: OPEN
-              updatedAt: null
-              fieldId: individualSsn
-            - fieldType: DATE
-              value: null
-              note: null
-              status: OPEN
-              updatedAt: null
-              fieldId: individualDateOfBirth
-            - fieldType: ADDRESS
-              value:
-                street1: 1 Market St
-                street2: Suite 402
-                city: San Francisco
-                state: CA
-                postalCode: '94105'
-                country: US
-              note: null
-              status: PENDING
-              updatedAt: 1628186047848
-              fieldId: individualResidenceAddress
-            - fieldType: DOCUMENT
-              value: []
-              note: null
-              status: OPEN
-              updatedAt: 1628186048034
-              fieldId: individualGovernmentId
-            - fieldType: PAYMENT_METHOD
-              value: null
-              note: Payment method not yet submitted
-              status: OPEN
-              updatedAt: 1628186048137
-              fieldId: individualSourceOfFunds
-            - fieldType: DOCUMENT
-              value: []
-              note: null
-              status: PENDING
-              updatedAt: null
-              fieldId: individualProofOfAddress
       example:
         id: AC_6HRPC9HP9EW
         status: OPEN
@@ -5625,6 +5522,114 @@ components:
             status: PENDING
             updatedAt: null
             fieldId: individualProofOfAddress
+      properties:
+        id:
+          type: string
+          description: The account identifier
+          example: AC_6HRPC9HP9EW
+        status:
+          type: string
+          example: PENDING
+        type:
+          type: string
+          example: INDIVIDUAL
+        country:
+          type: string
+          example: US
+        createdAt:
+          type: integer
+          format: int64
+          example: 1628186047000
+        updatedAt:
+          type: integer
+          format: int64
+          example: 1628186048000
+        depositAddresses:
+          $ref: '#/components/schemas/DepositAddresses'
+        totalBalances:
+          $ref: '#/components/schemas/TotalBalances11'
+        availableBalances:
+          $ref: '#/components/schemas/AvailableBalancesBTCETH'
+        profileFields:
+          type: array
+          example:
+            - fieldType: EMAIL
+              value: crashb@test.com
+              note: null
+              status: APPROVED
+              updatedAt: 1628186048000
+              fieldId: individualEmail
+            - fieldType: CELLPHONE
+              value: null
+              note: null
+              status: OPEN
+              updatedAt: null
+              fieldId: individualCellphoneNumber
+            - fieldType: STRING
+              value: Crash Bandicoot
+              note: null
+              status: PENDING
+              updatedAt: 1628186047848
+              fieldId: individualLegalName
+            - fieldType: STRING
+              value: null
+              note: null
+              status: OPEN
+              updatedAt: null
+              fieldId: individualSsn
+            - fieldType: DATE
+              value: null
+              note: null
+              status: OPEN
+              updatedAt: null
+              fieldId: individualDateOfBirth
+            - fieldType: ADDRESS
+              value:
+                street1: 1 Market St
+                street2: Suite 402
+                city: San Francisco
+                state: CA
+                postalCode: '94105'
+                country: US
+              note: null
+              status: PENDING
+              updatedAt: 1628186047848
+              fieldId: individualResidenceAddress
+            - fieldType: DOCUMENT
+              value: []
+              note: null
+              status: OPEN
+              updatedAt: 1628186048034
+              fieldId: individualGovernmentId
+            - fieldType: PAYMENT_METHOD
+              value: null
+              note: Payment method not yet submitted
+              status: OPEN
+              updatedAt: 1628186048137
+              fieldId: individualSourceOfFunds
+            - fieldType: DOCUMENT
+              value: []
+              note: null
+              status: PENDING
+              updatedAt: null
+              fieldId: individualProofOfAddress
+          items:
+            $ref: '#/components/schemas/ProfileField'
+        kycHash:
+          type: string
+          example: 9af12485185f20a001e8d20e9a3e0790e6408de836765d184e5be1489dd4e5a0
+          description: A hash based on SSN fingerprint for `Domestic` accounts only
+      required:
+        - id
+        - status
+        - type
+        - country
+        - createdAt
+        - updatedAt
+        - depositAddresses
+        - totalBalances
+        - availableBalances
+        - profileFields
     ProfileField:
       title: ProfileField
       required:
