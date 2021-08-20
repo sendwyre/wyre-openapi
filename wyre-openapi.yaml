@@ -2402,6 +2402,11 @@ paths:
           schema:
             type: string
             example: '20'
+        - schema:
+            type: boolean
+          in: query
+          name: withoutPII
+          description: 'If true, returns the status of all payment methods without any PII (personally identifiable information)'
       responses:
         '200':
           description: ''
@@ -2450,6 +2455,56 @@ paths:
                         liquidationBalances: {}
                     recordsTotal: 1
                     position: 0
+                withoutPII=true:
+                  value:
+                    data:
+                      - id: PA_4SLOHEZJF82
+                        owner: 'account:AC_CDLBWRACBJV'
+                        createdAt: 1625832628000
+                        createdBy: 'compliancerecord:CO_CSP4LFM2E3Z'
+                        name: null
+                        defaultCurrency: USD
+                        fingerprint: null
+                        provider: ''
+                        providerId: null
+                        providerIds: {}
+                        status: ACTIVE
+                        statusMessage: null
+                        waitingPrompts: []
+                        providerData: {}
+                        linkType: UNKNOWN
+                        beneficiaryType: UNKNOWN
+                        supportsDeposit: false
+                        nameOnMethod: null
+                        last4Digits: null
+                        brand: null
+                        expirationDisplay: null
+                        countryCode: null
+                        nickname: null
+                        underReviewAt: null
+                        reviewReason: null
+                        rejectionMessage: null
+                        supportsPayment: false
+                        disabled: false
+                        chargeableCurrencies: []
+                        depositableCurrencies: []
+                        details: null
+                        chargeFeeSchedule: null
+                        depositFeeSchedule: null
+                        minCharge: null
+                        maxCharge: null
+                        minDeposit: null
+                        maxDeposit: null
+                        documents: null
+                        deletedDocuments: null
+                        ownerName: null
+                        blockchains: null
+                        liquidationBalances: null
+                        internationalAccount: null
+                        srn: 'paymentmethod:PA_4NDBSEZJF82'
+                    position: 0
+                    recordsTotal: 1
+                    recordsFiltered: 1
       deprecated: false
       servers:
         - url: 'https://api.testwyre.com'
