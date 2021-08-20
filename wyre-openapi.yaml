@@ -360,6 +360,8 @@ paths:
                     failureReason: null
                     paymentNetworkErrorCode: ISO_8583_05
                     internalErrorCode: DO_NOT_HONOR
+                    usdSourceAmount: 208.26
+                    usdPurchaseAmount: 200
       deprecated: false
       servers:
         - url: 'https://api.testwyre.com'
@@ -417,6 +419,8 @@ paths:
                         paymentNetworkErrorCode: ISO_8583_05
                         internalErrorCode: DO_NOT_HONOR
                         walletType: TOKENIZED_PAYMENT_METHOD
+                        usdSourceAmount: 208.6
+                        usdPurchaseAmount: 200
                       - id: WO_LCMCZRD6RJ
                         createdAt: 1605882139000
                         owner: 'account:AC_HNW9ED7XARH'
@@ -437,6 +441,8 @@ paths:
                         internalErrorCode: null
                         paymentNetworkErrorCode: null
                         walletType: TOKENIZED_PAYMENT_METHOD
+                        usdSourceAmount: 15
+                        usdPurchaseAmount: 9.48
       deprecated: false
       servers:
         - url: 'https://api.testwyre.com'
@@ -6767,7 +6773,7 @@ components:
           type: string
           example: RUNNING_CHECKS
         sourceAmount:
-          type: integer
+          type: number
           format: int32
           example: 1.84
         sourceCurrency:
@@ -6836,7 +6842,7 @@ components:
               type: string
               example: INTERNATIONAL
             purchaseAmount:
-              type: integer
+              type: number
               format: int32
               example: 200
             authCodeRequested:
@@ -6862,6 +6868,12 @@ components:
                 - TOKENIZED_PAYMENT_METHOD
                 - APPLE_PAY
               example: TOKENIZED_PAYMENT_METHOD
+            usdSourceAmount:
+              type: number
+              description: The `sourceAmount`'s USD equivalent at the time of purchase
+            usdPurchaseAmount:
+              type: number
+              description: The `purchaseAmount`'s USD equivalent at the time of purchase
           required:
             - orderType
             - purchaseAmount
@@ -6872,6 +6884,8 @@ components:
             - paymentNetworkErrorCode
             - internalErrorCode
             - walletType
+            - usdSourceAmount
+            - usdPurchaseAmount
       description: ''
     ListOrdersPaginatedResponse:
       title: ListOrdersPaginatedResponse
