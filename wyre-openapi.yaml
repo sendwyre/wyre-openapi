@@ -1623,6 +1623,42 @@ paths:
                   destCurrency: XLM
                   message: BTC for XLM
                   autoConfirm: true
+              Deposit to EUR:
+                value:
+                  sourceCurrency: USD
+                  sourceAmount: '22'
+                  dest:
+                    paymentMethodType: INTERNATIONAL_TRANSFER
+                    paymentType: LOCAL_BANK_WIRE
+                    currency: EUR
+                    country: AUT
+                    beneficiaryType: INDIVIDUAL
+                    beneficiaryName: beneficiaryName
+                    swiftBic: '1234565798'
+                    firstNameOnAccount: Sally
+                    lastNameOnAccount: Smith
+                    beneficiaryAddress: 1234 Main St.
+                    beneficiaryAddress2: ''
+                    beneficiaryCity: Los Angeles
+                    beneficiaryPostal: '91604'
+                    beneficiaryPhoneNumber: '+15555555555'
+                    beneficaryState: CA
+                    beneficiaryDobDay: 2
+                    beneficiaryDobMonth: 12
+                    beneficiaryDobYear: 1990
+                    accountNumber: '1234567890123'
+                    routingNumber: '123412312'
+                    accountType: CHECKING
+                    chargeablePM: false
+                    senderName: Sender Name
+                    senderAddress: Sender Address
+                    senderCity: Lviv
+                    senderCountry: UKR
+                    senderPhoneNumber: '+333333333333'
+                    sendingReason: Reason for sending
+                  destCurrency: EUR
+                  message: Sending to payment method
+                  autoConfirm: true
         required: true
       responses:
         '200':
@@ -5881,29 +5917,91 @@ components:
             dest: 'paymentmethod:PA_L64RP4JB73L'
             destCurrency: USD
             message: Sending the user payment method
+        EUR deposit:
+          value:
+            sourceCurrency: USD
+            sourceAmount: '22'
+            dest:
+              paymentMethodType: INTERNATIONAL_TRANSFER
+              paymentType: LOCAL_BANK_WIRE
+              currency: EUR
+              country: AUT
+              beneficiaryType: INDIVIDUAL
+              beneficiaryName: beneficiaryName
+              swiftBic: '1234565798'
+              firstNameOnAccount: Sally
+              lastNameOnAccount: Smith
+              beneficiaryAddress: 1234 Main St.
+              beneficiaryAddress2: ''
+              beneficiaryCity: Los Angeles
+              beneficiaryPostal: '91604'
+              beneficiaryPhoneNumber: '+15555555555'
+              beneficaryState: CA
+              beneficiaryDobDay: 2
+              beneficiaryDobMonth: 12
+              beneficiaryDobYear: 1990
+              accountNumber: '1234567890123'
+              routingNumber: '123412312'
+              accountType: CHECKING
+              chargeablePM: false
+              senderName: Sender Name
+              senderAddress: Sender Address
+              senderCity: Lviv
+              senderCountry: UKR
+              senderPhoneNumber: '+333333333333'
+              sendingReason: Reason for sending
+            destCurrency: EUR
+            message: Sending to payment method
+            autoConfirm: true
       properties:
         source:
           type: string
+          description: An SRN representing an account that the funds will be retrieved from
         sourceCurrency:
           type: string
+          description: The currency (ISO 3166-1 Alpha-3) to withdraw from the source wallet
         sourceAmount:
           type: string
+          description: 'The amount to withdraw from the source, in units of `sourceCurrency` (only include `sourceAmount` OR `destAmount`, not both)'
         dest:
-          type: string
+          oneOf:
+            - type: string
+              description: 'An account, wallet, digital currency address or bank account to send the digital currency to. (for bitcoin address use `bitcoin:[address]`)'
+            - $ref: '#/components/schemas/CreatePaymentMethodRequest'
+            - $ref: '#/components/schemas/EURTransferDestination'
+          description: 'An account, wallet, digital currency address or bank account to send the digital currency to. (for bitcoin address use `bitcoin:[address]`)'
         destCurrency:
           type: string
+          description: 'The currency (ISO 3166-1 Alpha-3) to deposit. if not provided, the deposit will be the same as the withdrawal currency (no exchange performed)'
+        destAmount:
+          type: string
+          description: 'Specifies the total amount of `destCurrency` to deposit (only include `sourceAmount` OR `destAmount`, not both)'
         message:
           type: string
+          description: An optional user visible message to be sent with the transaction
+        notifyUrl:
+          type: string
+          description: An optional URL that Wyre will `POST` a status callback to
         autoConfirm:
           type: boolean
           default: true
+          description: An optional parameter to automatically confirm the transfer order
+        customId:
+          type: string
+          description: An optional custom identifier to tag the transfer
+        amountIncludesFees:
+          type: boolean
+          description: 'This optional flag, when true indicates that the amount provided (`sourceAmount` OR `destAmount`) will be treated as already including the fees'
+        preview:
+          type: boolean
+          description: 'This optional flag, when true, creates a quote transfer object, but does not execute a real transfer'
+        muteMessages:
+          type: boolean
+          description: 'This optional flag, when true, will disable all outbound emails and messages to the destination'
       required:
         - source
         - sourceCurrency
-        - sourceAmount
-        - dest
         - destCurrency
-        - message
     CreateWireTransferRequest:
       title: CreateWireTransferRequest
       required:
@@ -11701,13 +11799,13 @@ components:
           type: string
           example: 14102239203
         beneficiaryDobDay:
-          type: string
+          type: integer
           example: '15'
         beneficiaryDobMonth:
-          type: string
+          type: integer
           example: '12'
         beneficiaryDobYear:
-          type: string
+          type: integer
           example: '1989'
         paymentType:
           type: string
@@ -11732,6 +11830,152 @@ components:
           type: string
           example: 'true'
         plaidProcessorToken:
+          type: string
+      required:
+        - paymentMethodType
+        - country
+    EURTransferDestination:
+      title: EURTransferDestination
+      type: object
+      example:
+        paymentMethodType: INTERNATIONAL_TRANSFER
+        paymentType: LOCAL_BANK_WIRE
+        currency: EUR
+        country: AUT
+        beneficiaryType: INDIVIDUAL
+        beneficiaryName: beneficiaryName
+        swiftBic: '1234565798'
+        firstNameOnAccount: Sally
+        lastNameOnAccount: Smith
+        beneficiaryAddress: 1234 Main St.
+        beneficiaryAddress2: ''
+        beneficiaryCity: Los Angeles
+        beneficiaryPostal: '91604'
+        beneficiaryPhoneNumber: '+15555555555'
+        beneficaryState: CA
+        beneficiaryDobDay: 2
+        beneficiaryDobMonth: 12
+        beneficiaryDobYear: 1990
+        accountNumber: '1234567890123'
+        routingNumber: '123412312'
+        accountType: CHECKING
+        chargeablePM: false
+        senderName: Sender Name
+        senderAddress: Sender Address
+        senderCity: Lviv
+        senderCountry: UKR
+        senderPhoneNumber: '+333333333333'
+        sendingReason: Reason for sending
+      x-examples:
+        example:
+          value:
+            paymentMethodType: INTERNATIONAL_TRANSFER
+            paymentType: LOCAL_BANK_WIRE
+            currency: EUR
+            country: AUT
+            beneficiaryType: INDIVIDUAL
+            beneficiaryName: beneficiaryName
+            swiftBic: '1234565798'
+            firstNameOnAccount: Sally
+            lastNameOnAccount: Smith
+            beneficiaryAddress: 1234 Main St.
+            beneficiaryAddress2: ''
+            beneficiaryCity: Los Angeles
+            beneficiaryPostal: '91604'
+            beneficiaryPhoneNumber: '+15555555555'
+            beneficaryState: CA
+            beneficiaryDobDay: 2
+            beneficiaryDobMonth: 12
+            beneficiaryDobYear: 1990
+            accountNumber: '1234567890123'
+            routingNumber: '123412312'
+            accountType: CHECKING
+            chargeablePM: false
+            senderName: Sender Name
+            senderAddress: Sender Address
+            senderCity: Lviv
+            senderCountry: UKR
+            senderPhoneNumber: '+333333333333'
+            sendingReason: Reason for sending
+      properties:
+        paymentMethodType:
+          type: string
+          example: INTERNATIONAL_TRANSFER
+          enum:
+            - LOCAL_TRANSFER
+            - INTERNATIONAL_TRANSFER
+        paymentType:
+          type: string
+          example: LOCAL_BANK_WIRE
+        currency:
+          type: string
+          example: USD
+        country:
+          type: string
+          example: US
+        beneficiaryType:
+          type: string
+          example: INDIVIDUAL
+        beneficiaryName:
+          type: string
+        beneficiaryAddress:
+          type: string
+          example: 112 Brannan St
+        beneficiaryAddress2:
+          type: string
+        beneficiaryCity:
+          type: string
+          example: San Francisco
+        beneficiaryState:
+          type: string
+          example: CA
+        beneficiaryPostal:
+          type: string
+          example: '94108'
+        beneficiaryPhoneNumber:
+          type: string
+          example: 14102239203
+        beneficiaryDobDay:
+          type: integer
+          example: '15'
+        beneficiaryDobMonth:
+          type: integer
+          example: '12'
+        beneficiaryDobYear:
+          type: integer
+          example: '1989'
+        firstNameOnAccount:
+          type: string
+          example: Billy-Bob
+        lastNameOnAccount:
+          type: string
+          example: Jones
+        accountNumber:
+          type: string
+          description: Bank account number (i.e. checking or savings account number)
+          example: 0
+        routingNumber:
+          type: string
+          example: 0
+        accountType:
+          type: string
+          example: CHECKING
+        chargeablePM:
+          type: boolean
+        swiftBic:
+          type: string
+          example: '123456789'
+        senderName:
+          type: string
+        senderAddress:
+          type: string
+        senderCity:
+          type: string
+        senderCountry:
+          type: string
+        senderPhoneNumber:
+          type: string
+        sendingReason:
           type: string
       required:
         - paymentMethodType
