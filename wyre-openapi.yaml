@@ -6654,6 +6654,7 @@ components:
           type: boolean
           description: Specify if the `sourceAmount` or `destAmount` will include fees or not
           example: false
+          default: false
       description: ''
       example:
         sourceAmount: '10'
@@ -6709,19 +6710,16 @@ components:
     CreateWalletOrderQuotationRequest:
       title: CreateWalletOrderQuotationRequest
       required:
-        - amount
         - sourceCurrency
         - destCurrency
         - dest
         - accountId
         - country
-        - walletType
-        - amountIncludeFees
       type: object
       properties:
         amount:
           type: string
-          description: 'The amount of source currency to be exchanged in the wallet order, only used if `amountIncludeFees` is `false`'
+          description: 'The amount of source currency (not including fees) to be exchanged in the wallet order (only used if `sourceAmount`, `destAmount`, and `amountIncludeFees` are not provided)'
           example: '50.0'
         sourceCurrency:
           type: string
@@ -6747,17 +6745,19 @@ components:
           type: string
           description: 'The type of wallet, can be `APPLE_PAY` or `DEBIT_CARD`'
           example: DEBIT_CARD
+          default: DEBIT_CARD
         amountIncludeFees:
           type: boolean
-          description: 'If `true`, fees are deducted from the `sourceAmount` or `destAmount`, only one of which should be used'
+          description: 'If `true`, fees are deducted from the `sourceAmount` or `destAmount`, only one of which should be used (should not be included if `amount` is provided)'
           example: false
+          default: false
         sourceAmount:
           type: string
-          description: Use this parameter in place of `amount` when `amountIncludeFees` is set to `true`.
+          description: Use this parameter in place of `amount` when `amountIncludeFees` is provided.
           example: '50.0'
         destAmount:
           type: string
-          description: Use this parameter in place of `amount` when `amountIncludeFees` is set to `true`.
+          description: Use this parameter in place of `amount` when `amountIncludeFees` is provided.
           example: '50.0'
       description: ''
       example:
