@@ -6037,52 +6037,6 @@ components:
         destAmount: 100
         message: USD Wire Transfer
         autoConfirm: true
-    CreateReservationRequest:
-      title: CreateReservationRequest
-      required:
-        - sourceAmount
-        - paymentMethod
-        - amountIncludeFees
-        - sourceCurrency
-        - destCurrency
-        - redirectUrl
-        - failureRedirectUrl
-        - referrerAccountId
-        - dest
-        - country
-      type: object
-      properties:
-        sourceAmount:
-          type: string
-        paymentMethod:
-          type: string
-        amountIncludeFees:
-          type: boolean
-        sourceCurrency:
-          type: string
-        destCurrency:
-          type: string
-        redirectUrl:
-          type: string
-        failureRedirectUrl:
-          type: string
-        referrerAccountId:
-          type: string
-        dest:
-          type: string
-        country:
-          type: string
-      example:
-        sourceAmount: '10'
-        paymentMethod: debit-card
-        amountIncludeFees: true
-        sourceCurrency: USD
-        destCurrency: BTC
-        redirectUrl: 'https://www.sendwyre.com'
-        failureRedirectUrl: 'https://www.shapeshift.com'
-        referrerAccountId: AC_Y22RAQXEYV6
-        dest: 'bitcoin:tb1q6yn0ajs733xsk25vefrhwjey4629qt9c67y6ma'
-        country: US
     UpdateAccountRequest:
       title: UpdateAccountRequest
       required:
@@ -6558,7 +6512,6 @@ components:
         - failureRedirectUrl
         - paymentMethod
         - referrerAccountId
-        - amountIncludeFees
       type: object
       properties:
         amount:
@@ -6654,7 +6607,6 @@ components:
           type: boolean
           description: Specify if the `sourceAmount` or `destAmount` will include fees or not
           example: false
-          default: false
       description: ''
       example:
         sourceAmount: '10'
@@ -6748,9 +6700,8 @@ components:
           default: DEBIT_CARD
         amountIncludeFees:
           type: boolean
-          description: 'If `true`, fees are deducted from the `sourceAmount` or `destAmount`, only one of which should be used (should not be included if `amount` is provided)'
+          description: 'If `true`, fees are deducted from the `sourceAmount` or `destAmount`, only one of which should be used (`amountIncludeFees` should not be included if `amount` is provided)'
           example: false
-          default: false
         sourceAmount:
           type: string
           description: Use this parameter in place of `amount` when `amountIncludeFees` is provided.
