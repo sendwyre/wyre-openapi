@@ -6405,7 +6405,6 @@ components:
           enum:
             - APPLE_PAY
             - DEBIT_CARD
-          default: DEBIT_CARD
         userId:
           type: string
           description: User identifier
@@ -6424,11 +6423,6 @@ components:
           example: '+15558675309'
       required:
         - accountId
-        - address
-        - walletType
-        - firstName
-        - lastName
-        - cellNumber
     LimitsAPIResponse:
       title: LimitsAPIResponse
       required:
