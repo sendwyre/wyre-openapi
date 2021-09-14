@@ -316,6 +316,13 @@ paths:
         - url: 'https://api.testwyre.com'
           variables: {}
       security: []
+    parameters:
+      - schema:
+          type: string
+        name: orderId
+        in: path
+        required: true
+        description: the wallet order id
   '/v3/orders/{orderId}/full':
     get:
       tags:
@@ -5439,48 +5446,7 @@ components:
   schemas:
     CreateOrderRequest:
       title: CreateOrderRequest
-      required:
-        - debitCard
-        - reservationId
-        - amount
-        - sourceCurrency
-        - destCurrency
-        - dest
-        - referrerAccountId
-        - givenName
-        - familyName
-        - email
-        - phone
-        - referenceId
-        - address
       type: object
-      properties:
-        debitCard:
-          $ref: '#/components/schemas/DebitCard'
-        reservationId:
-          type: string
-        amount:
-          type: string
-        sourceCurrency:
-          type: string
-        destCurrency:
-          type: string
-        dest:
-          type: string
-        referrerAccountId:
-          type: string
-        givenName:
-          type: string
-        familyName:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
-        referenceId:
-          type: string
-        address:
-          $ref: '#/components/schemas/Address'
       example:
         debitCard:
           number: '4111111111111111'
@@ -5504,6 +5470,60 @@ components:
           state: CA
           postalCode: '91423'
           country: US
+      properties:
+        debitCard:
+          $ref: '#/components/schemas/DebitCard'
+        reservationId:
+          type: string
+          description: A valid reservation Id generated from the Wallet Order Reservation API
+        amount:
+          type: string
+          description: the order amount
+        sourceCurrency:
+          type: string
+          description: ''
+        destCurrency:
+          type: string
+          description: the destination currency to be supplied
+        dest:
+          type: string
+          description: the funds destination for this order. must include appropriate SRN
+        referrerAccountId:
+          type: string
+          description: 'Partner account id, must match the account id that created the reservation'
+        givenName:
+          type: string
+          description: buyer's first name
+        familyName:
+          type: string
+          description: buyer's last name
+        email:
+          type: string
+          description: valid email address
+        phone:
+          type: string
+        referenceId:
+          type: string
+        ipAddress:
+          type: string
+          description: End user's ip address
+        address:
+          $ref: '#/components/schemas/Address'
+      required:
+        - debitCard
+        - reservationId
+        - amount
+        - sourceCurrency
+        - destCurrency
+        - dest
+        - referrerAccountId
+        - givenName
+        - familyName
+        - email
+        - phone
+        - referenceId
+        - ipAddress
+        - address
     CreateMultipleWalletsRequest:
       title: CreateMultipleWalletsRequest
       required:
@@ -6497,16 +6517,19 @@ components:
         yearlyRemaining: 1500
     CreateWalletOrderReservationRequest:
       title: CreateWalletOrderReservationRequest
-      required:
-        - sourceCurrency
-        - destCurrency
-        - dest
-        - country
-        - redirectUrl
-        - failureRedirectUrl
-        - paymentMethod
-        - referrerAccountId
       type: object
+      description: ''
+      example:
+        sourceAmount: '10'
+        paymentMethod: debit-card
+        amountIncludeFees: true
+        sourceCurrency: USD
+        destCurrency: ETH
+        redirectUrl: 'https://www.sendwyre.com/success'
+        failureRedirectUrl: 'https://www.sendwyre.com/failure'
+        referrerAccountId: AC_YV8LCV3C9HZ
+        dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
+        country: US
       properties:
         amount:
           type: string
@@ -6560,12 +6583,12 @@ components:
           example: 1234 Test Ave
         lockFields:
           type: array
-          items:
-            type: string
           description: 'Possible values are ["amount", "sourceCurrency", "destCurrency", "dest", "street1", "city", "state", "postalCode", "country", "firstName", "lastName", "phone", "email","paymentMethod"]'
           example:
             - amount
             - sourceCurrency
+          items:
+            type: string
         redirectUrl:
           type: string
           description: Any valid HTTP URL
@@ -6601,18 +6624,8 @@ components:
           type: boolean
           description: Specify if the `sourceAmount` or `destAmount` will include fees or not
           example: false
-      description: ''
-      example:
-        sourceAmount: '10'
-        paymentMethod: debit-card
-        amountIncludeFees: true
-        sourceCurrency: USD
-        destCurrency: ETH
-        redirectUrl: 'https://www.sendwyre.com/success'
-        failureRedirectUrl: 'https://www.sendwyre.com/failure'
-        referrerAccountId: AC_YV8LCV3C9HZ
-        dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-        country: US
+      required:
+        - referrerAccountId
     CreateWalletOrderReservationResponse:
       title: CreateWalletOrderReservationResponse
       required:
@@ -6655,13 +6668,15 @@ components:
         value: Crash Bandicoot
     CreateWalletOrderQuotationRequest:
       title: CreateWalletOrderQuotationRequest
-      required:
-        - sourceCurrency
-        - destCurrency
-        - dest
-        - accountId
-        - country
       type: object
+      description: ''
+      example:
+        amount: '5.0'
+        sourceCurrency: USD
+        destCurrency: ETH
+        dest: 'ethereum:0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7'
+        accountId: AC_XXXXXXXX
+        country: US
       properties:
         amount:
           type: string
@@ -6704,14 +6719,12 @@ components:
           type: string
           description: Use this parameter in place of `amount` when `amountIncludeFees` is provided.
           example: '50.0'
-      description: ''
-      example:
-        amount: '5.0'
-        sourceCurrency: USD
-        destCurrency: ETH
-        dest: 'ethereum:0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7'
-        accountId: AC_XXXXXXXX
-        country: US
+      required:
+        - sourceCurrency
+        - destCurrency
+        - dest
+        - accountId
+        - country
     CreateWalletOrderQuotationResponse:
       title: CreateWalletOrderQuotationResponse
       required:
@@ -7679,18 +7692,19 @@ components:
         - card2faNeeded
     SubmitAuthorizationRequest:
       title: SubmitAuthorizationRequest
-      required:
-        - type
-        - walletOrderId
-        - reservation
-        - sms
-        - card2fa
       type: object
+      description: ''
+      example:
+        type: SMS
+        walletOrderId: WO_Y74E8FXVWJ2
+        reservation: NHEA3UYXEXCUX4Y2HG78
+        sms: 0
+        card2fa: 0
       properties:
         type:
           type: string
           description: 'The type of authentication codes being submitted (can be `SMS`,`CARD2FA`, or `ALL`)'
-          example: SMS
+          example: ALL
         walletOrderId:
           type: string
           description: the wallet order identifier
@@ -7707,13 +7721,12 @@ components:
           type: string
           description: The 6-digit Card 2FA Code (required if `type` is `CARD2FA` or `ALL`)
           example: 0
-      description: ''
-      example:
-        type: SMS
-        walletOrderId: WO_Y74E8FXVWJ2
-        reservation: NHEA3UYXEXCUX4Y2HG78
-        sms: 0
-        card2fa: 0
+      required:
+        - type
+        - walletOrderId
+        - reservation
+        - sms
+        - card2fa
     SubmitAuthorizationResponse:
       title: SubmitAuthorizationResponse
       required:
@@ -11467,8 +11480,6 @@ components:
         - destCurrency
         - dest
         - refundTo
-        - notifyUrl
-        - ipAddress
       type: object
       properties:
         sourceCurrency:
