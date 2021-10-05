@@ -1666,6 +1666,50 @@ paths:
                   destCurrency: EUR
                   message: Sending to payment method
                   autoConfirm: true
+              CNY transfer:
+                value:
+                  sourceCurrency: CNY
+                  sourceAmount: '300'
+                  dest:
+                    paymentMethodType: INTERNATIONAL_TRANSFER
+                    paymentType: LOCAL_BANK_WIRE
+                    currency: CNY
+                    country: CN
+                    beneficiaryType: INDIVIDUAL
+                    beneficiaryName: beneficiaryNameTestName
+                    swiftBic: '1234565798'
+                    bankName: Chinese bank
+                    branchName: 双出双出
+                    branchCode: 双出双出
+                    bankCity: Tokyo
+                    bankProvince: Jojo
+                    bankCode: BOC
+                    chineseNationalIdNumber: '340215697854632145'
+                    notes: test note text
+                    firstNameOnAccount: Sally
+                    lastNameOnAccount: Smith
+                    beneficiaryAddress: 1234 Main St.
+                    beneficiaryAddress2: ''
+                    beneficiaryCity: Los Angeles
+                    beneficiaryPostal: '91604'
+                    beneficiaryPhoneNumber: '+15555555555'
+                    beneficaryState: CA
+                    beneficiaryDobDay: 2
+                    beneficiaryDobMonth: 12
+                    beneficiaryDobYear: 1990
+                    accountNumber: '1234567890123'
+                    routingNumber: '123412312'
+                    accountType: CHECKING
+                    chargeablePM: false
+                    senderName: ',Andrii,'
+                    senderAddress: 'Some, ,st.'
+                    senderCity: Lviv
+                    senderCountry: UKR
+                    senderPhoneNumber: '+380980100683'
+                    sendingReason: ',Some, sending,, reason,,,'
+                  destCurrency: CNY
+                  message: 'Sending, ,the user, payment method'
+                  autoConfirm: true
         required: true
       responses:
         '200':
@@ -5989,6 +6033,7 @@ components:
               description: 'An account, wallet, digital currency address or bank account to send the digital currency to. (for bitcoin address use `bitcoin:[address]`)'
             - $ref: '#/components/schemas/CreatePaymentMethodRequest'
             - $ref: '#/components/schemas/EURTransferDestination'
+            - $ref: '#/components/schemas/CNYTransferDestination'
           description: 'An account, wallet, digital currency address or bank account to send the digital currency to. (for bitcoin address use `bitcoin:[address]`)'
         destCurrency:
           type: string
@@ -11937,6 +11982,9 @@ components:
         beneficiaryType:
           type: string
           example: INDIVIDUAL
+          enum:
+            - INDIVIDUAL
+            - CORPORATE
         beneficiaryAddress:
           type: string
           example: 112 Brannan St
@@ -11982,6 +12030,9 @@ components:
         accountType:
           type: string
           example: CHECKING
+          enum:
+            - CHECKING
+            - SAVINGS
         chargeablePM:
           type: string
           example: 'true'
@@ -11990,6 +12041,12 @@ components:
       required:
         - paymentMethodType
         - country
+        - currency
+        - firstNameOnAccount
+        - lastNameOnAccount
+        - accountNumber
+        - routingNumber
+        - accountType
     EURTransferDestination:
       title: EURTransferDestination
       type: object
@@ -12136,6 +12193,188 @@ components:
       required:
         - paymentMethodType
         - country
+    CNYTransferDestination:
+      description: ''
+      type: object
+      x-examples:
+        example:
+          paymentMethodType: INTERNATIONAL_TRANSFER
+          paymentType: LOCAL_BANK_WIRE
+          currency: CNY
+          country: CN
+          beneficiaryType: INDIVIDUAL
+          beneficiaryName: beneficiaryNameTestName
+          swiftBic: '1234565798'
+          bankName: Chinese bank
+          branchName: 双出双出
+          branchCode: 双出双出
+          bankCity: Tokyo
+          bankProvince: Jojo
+          bankCode: BOC
+          chineseNationalIdNumber: '340215697854632145'
+          notes: test note text
+          firstNameOnAccount: Sally
+          lastNameOnAccount: Smith
+          beneficiaryAddress: 1234 Main St.
+          beneficiaryAddress2: ''
+          beneficiaryCity: Los Angeles
+          beneficiaryPostal: '91604'
+          beneficiaryPhoneNumber: '+15555555555'
+          beneficaryState: CA
+          beneficiaryDobDay: 2
+          beneficiaryDobMonth: 12
+          beneficiaryDobYear: 1990
+          accountNumber: '1234567890123'
+          routingNumber: '123412312'
+          accountType: CHECKING
+          chargeablePM: false
+          senderName: ',Andrii,'
+          senderAddress: 'Some, ,st.'
+          senderCity: Lviv
+          senderCountry: UKR
+          senderPhoneNumber: '+380980100683'
+          sendingReason: ',Some, sending,, reason,,,'
+      properties:
+        paymentMethodType:
+          type: string
+          minLength: 1
+        paymentType:
+          type: string
+          minLength: 1
+        currency:
+          type: string
+          minLength: 1
+        country:
+          type: string
+          minLength: 1
+        beneficiaryType:
+          type: string
+          minLength: 1
+        beneficiaryName:
+          type: string
+          minLength: 1
+        swiftBic:
+          type: string
+          minLength: 1
+        bankName:
+          type: string
+          minLength: 1
+        branchName:
+          type: string
+          minLength: 1
+        branchCode:
+          type: string
+          minLength: 1
+        bankCity:
+          type: string
+          minLength: 1
+        bankProvince:
+          type: string
+          minLength: 1
+        bankCode:
+          type: string
+          minLength: 1
+        chineseNationalIdNumber:
+          type: string
+          minLength: 1
+        notes:
+          type: string
+          minLength: 1
+        firstNameOnAccount:
+          type: string
+          minLength: 1
+        lastNameOnAccount:
+          type: string
+          minLength: 1
+        beneficiaryAddress:
+          type: string
+          minLength: 1
+        beneficiaryAddress2:
+          type: string
+        beneficiaryCity:
+          type: string
+          minLength: 1
+        beneficiaryPostal:
+          type: string
+          minLength: 1
+        beneficiaryPhoneNumber:
+          type: string
+          minLength: 1
+        beneficaryState:
+          type: string
+          minLength: 1
+        beneficiaryDobDay:
+          type: number
+        beneficiaryDobMonth:
+          type: number
+        beneficiaryDobYear:
+          type: number
+        accountNumber:
+          type: string
+          minLength: 1
+        routingNumber:
+          type: string
+          minLength: 1
+        accountType:
+          type: string
+          minLength: 1
+        chargeablePM:
+          type: boolean
+        senderName:
+          type: string
+          minLength: 1
+        senderAddress:
+          type: string
+          minLength: 1
+        senderCity:
+          type: string
+          minLength: 1
+        senderCountry:
+          type: string
+          minLength: 1
+        senderPhoneNumber:
+          type: string
+          minLength: 1
+        sendingReason:
+          type: string
+          minLength: 1
+      required:
+        - paymentMethodType
+        - paymentType
+        - currency
+        - country
+        - beneficiaryType
+        - beneficiaryName
+        - swiftBic
+        - bankName
+        - branchName
+        - branchCode
+        - bankCity
+        - bankProvince
+        - bankCode
+        - chineseNationalIdNumber
+        - firstNameOnAccount
+        - lastNameOnAccount
+        - beneficiaryAddress
+        - beneficiaryAddress2
+        - beneficiaryCity
+        - beneficiaryPostal
+        - beneficiaryPhoneNumber
+        - beneficaryState
+        - beneficiaryDobDay
+        - beneficiaryDobMonth
+        - beneficiaryDobYear
+        - accountNumber
+        - routingNumber
+        - accountType
+        - chargeablePM
+        - senderName
+        - senderAddress
+        - senderCity
+        - senderCountry
+        - senderPhoneNumber
+        - sendingReason
+      title: CNYTransferDestination
     CreatePaymentMethodResponse:
       title: CreatePaymentMethodResponse
       required:
@@ -12176,6 +12415,7 @@ components:
         owner:
           type: string
           example: 'account:AC_YV8LCV3C9HZ'
+          description: The owner of the payment method (can be a user account or transfer)
         createdAt:
           type: integer
           format: int64
@@ -14324,6 +14564,7 @@ components:
         owner:
           type: string
           example: 'account:AC-XX38VYXUA84'
+          description: The owner of the payment method (can be a user account or transfer)
         createdAt:
           type: integer
           format: int64
