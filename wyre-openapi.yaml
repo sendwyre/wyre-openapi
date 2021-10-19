@@ -915,59 +915,62 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateApplePayOrderRequest'
-            example:
-              partnerId: YOUR_PARTNER_ACCOUNT_ID
-              payload:
-                paymentObject:
-                  billingContact:
-                    addressLines:
-                      - street address
-                    administrativeArea: IL
-                    country: United States
-                    countryCode: US
-                    familyName: LastName
-                    givenName: Your 1st name
-                    locality: San Francisco
-                    postalCode: '94103'
-                    subAdministrativeArea: ''
-                    subLocality: ''
-                  shippingContact:
-                    addressLines:
-                      - street address 1
-                    administrativeArea: CA
-                    country: United States
-                    countryCode: US
-                    emailAddress: user@sendwyre.com
-                    familyName: name
-                    givenName: last name
-                    locality: San Francisco
-                    phoneNumber: 14100000000
-                    postalCode: '60606'
-                    subAdministrativeArea: ''
-                    subLocality: ''
-                  token:
-                    paymentData:
-                      version: ''
-                      data: ''
-                      signature: ...
-                      header:
-                        ephemeralPublicKey: ''
-                        publicKeyHash: ''
-                        transactionId: ''
-                    paymentMethod:
-                      displayName: Visa 1234
-                      network: Visa
-                      type: debit
-                    transactionIdentifier: ''
-                orderRequest:
-                  amount: 1.84
-                  destCurrency: ETH
-                  sourceCurrency: USD
-                  ipAddress: end_user_ip_address
-                  reservationId: reservationId
-                  dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-                  referenceId: for_your_reference
-                  referrerAccountId: AC_XXXXXXXX
+            examples:
+              example:
+                value:
+                  partnerId: YOUR_PARTNER_ACCOUNT_ID
+                  payload:
+                    paymentObject:
+                      billingContact:
+                        addressLines:
+                          - street address line 1
+                          - street address line 2
+                        administrativeArea: IL
+                        country: United States
+                        countryCode: US
+                        familyName: LastName
+                        givenName: Your 1st name
+                        locality: San Francisco
+                        postalCode: '94103'
+                        subAdministrativeArea: ''
+                        subLocality: ''
+                      shippingContact:
+                        addressLines:
+                          - street address 1
+                        administrativeArea: CA
+                        country: United States
+                        countryCode: US
+                        emailAddress: user@sendwyre.com
+                        familyName: name
+                        givenName: last name
+                        locality: San Francisco
+                        phoneNumber: '+14100000000'
+                        postalCode: '60606'
+                        subAdministrativeArea: ''
+                        subLocality: ''
+                      token:
+                        paymentData:
+                          version: ''
+                          data: ''
+                          signature: ...
+                          header:
+                            ephemeralPublicKey: ''
+                            publicKeyHash: ''
+                            transactionId: ''
+                        paymentMethod:
+                          displayName: Visa 1234
+                          network: Visa
+                          type: debit
+                        transactionIdentifier: ''
+                    orderRequest:
+                      amount: '1.84'
+                      destCurrency: ETH
+                      sourceCurrency: USD
+                      ipAddress: end_user_ip_address
+                      reservationId: reservationId
+                      dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
+                      referenceId: for_your_reference
+                      referrerAccountId: AC_XXXXXXXX
         required: true
       responses:
         '200':
@@ -6692,25 +6695,39 @@ components:
         reservation: EFX6DN9ECRPTPDJBEL6U
     ProfileFieldUpdate:
       title: ProfileFieldUpdate
-      required:
-        - fieldId
-        - value
       type: object
+      description: ''
+      example:
+        fieldId: individualLegalName
+        value: Crash Bandicoot
       properties:
         fieldId:
           type: string
           description: The identifier for the field to update
           example: individualLegalName
         value:
-          oneOf:
-            - type: string
-            - type: object
           description: The new value to update the field with
           example: Crash Bandicoot
-      description: ''
-      example:
-        fieldId: individualLegalName
-        value: Crash Bandicoot
+          anyOf:
+            - type: string
+            - type: object
+              description: Address
+              properties:
+                street1:
+                  type: string
+                street2:
+                  type: string
+                city:
+                  type: string
+                state:
+                  type: string
+                postalCode:
+                  type: string
+                country:
+                  type: string
+      required:
+        - fieldId
+        - value
     CreateWalletOrderQuotationRequest:
       title: CreateWalletOrderQuotationRequest
       type: object
@@ -7842,113 +7859,59 @@ components:
     CreateApplePayOrderRequest:
       description: ''
       type: object
-      x-examples:
-        example:
-          partnerId: YOUR_PARTNER_ACCOUNT_ID
-          payload:
-            paymentObject:
-              billingContact:
-                addressLines:
-                  - street address
-                administrativeArea: IL
-                country: United States
-                countryCode: US
-                familyName: LastName
-                givenName: Your 1st name
-                locality: San Francisco
-                postalCode: '94103'
-                subAdministrativeArea: ''
-                subLocality: ''
-              shippingContact:
-                addressLines:
-                  - street address 1
-                administrativeArea: CA
-                country: United States
-                countryCode: US
-                emailAddress: user@sendwyre.com
-                familyName: name
-                givenName: last name
-                locality: San Francisco
-                phoneNumber: 14100000000
-                postalCode: '60606'
-                subAdministrativeArea: ''
-                subLocality: ''
-              token:
-                paymentData:
-                  version: ''
-                  data: ''
-                  signature: ...
-                  header:
-                    ephemeralPublicKey: ''
-                    publicKeyHash: ''
-                    transactionId: ''
-                paymentMethod:
-                  displayName: Visa 1234
-                  network: Visa
-                  type: debit
-                transactionIdentifier: ''
-            orderRequest:
-              amount: 1.84
-              destCurrency: ETH
-              sourceCurrency: USD
-              ipAddress: end_user_ip_address
-              reservationId: reservationId
-              dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-              referenceId: for_your_reference
-              referrerAccountId: AC_XXXXXXXX
-          value:
-            partnerId: YOUR_PARTNER_ACCOUNT_ID
-            payload:
-              paymentObject:
-                billingContact:
-                  addressLines:
-                    - street address
-                  administrativeArea: IL
-                  country: United States
-                  countryCode: US
-                  familyName: LastName
-                  givenName: Your 1st name
-                  locality: San Francisco
-                  postalCode: '94103'
-                  subAdministrativeArea: ''
-                  subLocality: ''
-                shippingContact:
-                  addressLines:
-                    - street address 1
-                  administrativeArea: CA
-                  country: United States
-                  countryCode: US
-                  emailAddress: user@sendwyre.com
-                  familyName: name
-                  givenName: last name
-                  locality: San Francisco
-                  phoneNumber: 14100000000
-                  postalCode: '60606'
-                  subAdministrativeArea: ''
-                  subLocality: ''
-                token:
-                  paymentData:
-                    version: ''
-                    data: ''
-                    signature: ...
-                    header:
-                      ephemeralPublicKey: ''
-                      publicKeyHash: ''
-                      transactionId: ''
-                  paymentMethod:
-                    displayName: Visa 1234
-                    network: Visa
-                    type: debit
-                  transactionIdentifier: ''
-              orderRequest:
-                amount: 1.84
-                destCurrency: ETH
-                sourceCurrency: USD
-                ipAddress: end_user_ip_address
-                reservationId: reservationId
-                dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-                referenceId: for_your_reference
-                referrerAccountId: AC_XXXXXXXX
+      example:
+        partnerId: YOUR_PARTNER_ACCOUNT_ID
+        payload:
+          paymentObject:
+            billingContact:
+              addressLines:
+                - street address
+              administrativeArea: IL
+              country: United States
+              countryCode: US
+              familyName: LastName
+              givenName: Your 1st name
+              locality: San Francisco
+              postalCode: '94103'
+              subAdministrativeArea: ''
+              subLocality: ''
+            shippingContact:
+              addressLines:
+                - street address 1
+              administrativeArea: CA
+              country: United States
+              countryCode: US
+              emailAddress: user@sendwyre.com
+              familyName: name
+              givenName: last name
+              locality: San Francisco
+              phoneNumber: '+14100000000'
+              postalCode: '60606'
+              subAdministrativeArea: ''
+              subLocality: ''
+            token:
+              paymentData:
+                version: ''
+                data: ''
+                signature: ...
+                header:
+                  ephemeralPublicKey: ''
+                  publicKeyHash: ''
+                  transactionId: ''
+              paymentMethod:
+                displayName: Visa 1234
+                network: Visa
+                type: debit
+              transactionIdentifier: ''
+          orderRequest:
+            amount: 1.84
+            destCurrency: ETH
+            sourceCurrency: USD
+            ipAddress: end_user_ip_address
+            reservationId: reservationId
+            dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
+            referenceId: for_your_reference
+            referrerAccountId: AC_XXXXXXXX
       properties:
         partnerId:
           type: string
@@ -7965,7 +7928,7 @@ components:
                     addressLines:
                       type: array
                       items:
-                        type: object
+                        type: string
                     administrativeArea:
                       type: string
                       minLength: 1
@@ -7997,7 +7960,7 @@ components:
                     addressLines:
                       type: array
                       items:
-                        type: object
+                        type: string
                     administrativeArea:
                       type: string
                       minLength: 1
@@ -8020,7 +7983,7 @@ components:
                       type: string
                       minLength: 1
                     phoneNumber:
-                      type: number
+                      type: string
                     postalCode:
                       type: string
                       minLength: 1
@@ -8043,10 +8006,6 @@ components:
                           minLength: 1
                         header:
                           type: object
-                          required:
-                            - ephemeralPublicKey
-                            - publicKeyHash
-                            - transactionId
                           properties:
                             ephemeralPublicKey:
                               type: string
@@ -8054,6 +8013,10 @@ components:
                               type: string
                             transactionId:
                               type: string
+                          required:
+                            - ephemeralPublicKey
+                            - publicKeyHash
+                            - transactionId
                     paymentMethod:
                       type: object
                       properties:
@@ -8072,7 +8035,7 @@ components:
               type: object
               properties:
                 amount:
-                  type: number
+                  type: string
                 destCurrency:
                   type: string
                   minLength: 1
@@ -8096,6 +8059,7 @@ components:
                   minLength: 1
       required:
         - partnerId
+        - payload
     CreateWalletResponse:
       title: CreateWalletResponse
       type: object
