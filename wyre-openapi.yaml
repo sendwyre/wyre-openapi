@@ -5800,30 +5800,42 @@ components:
         - profileFields
     ProfileField:
       title: ProfileField
-      required:
-        - fieldType
-        - value
-        - note
-        - status
-        - updatedAt
-        - fieldId
       type: object
+      example:
+        fieldType: EMAIL
+        value: crashb@test.com
+        note: null
+        status: APPROVED
+        updatedAt: 1628186048000
+        fieldId: individualEmail
       properties:
         fieldType:
           type: string
           example: EMAIL
+          enum:
+            - STRING
+            - CELLPHONE
+            - EMAIL
+            - ADDRESS
+            - DATE
+            - DOCUMENT
+            - PAYMENT_METHOD
         value:
           oneOf:
             - type: string
-            - type: object
+            - $ref: '#/components/schemas/Address1'
           nullable: true
         note:
           type: string
-          nullable: true
           example: null
+          nullable: true
         status:
           type: string
           example: APPROVED
+          enum:
+            - OPEN
+            - PENDING
+            - APPROVED
         updatedAt:
           type: integer
           format: int64
@@ -5832,13 +5844,23 @@ components:
         fieldId:
           type: string
           example: individualEmail
-      example:
-        fieldType: EMAIL
-        value: crashb@test.com
-        note: null
-        status: APPROVED
-        updatedAt: 1628186048000
-        fieldId: individualEmail
+          enum:
+            - individualLegalName
+            - individualCellphoneNumber
+            - individualEmail
+            - individualResidenceAddress
+            - individualGovernmentId
+            - individualDateOfBirth
+            - individualSsn
+            - individualSourceOfFunds
+            - individualProofOfAddress
+      required:
+        - fieldType
+        - value
+        - note
+        - status
+        - updatedAt
+        - fieldId
     DebitCard:
       title: DebitCard
       required:
@@ -6215,49 +6237,7 @@ components:
         notifyTarget: 'https://yourwebhookhere.com/webhook/account'
     CreateAccountRequest:
       title: CreateAccountRequest
-      required:
-        - type
-        - country
-        - profileFields
       type: object
-      properties:
-        type:
-          type: string
-          description: 'The type of account, currently `INDIVIDUAL` is the only supported value'
-          example: INDIVIDUAL
-        country:
-          type: string
-          description: The country of the account holder. For individuals this is the country of residence. (Currently we only support US accounts)
-          example: US
-        subaccount:
-          type: boolean
-          description: 'When true, the newly created account will be a custodial subaccount owner by the caller. Otherwise, the account will be a standalone non-custodial account.'
-          example: true
-        profileFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProfileFieldUpdate'
-          description: An array of the Fields submitted at the time of Account creation. You can submit as many or as few fields as you need at the time of Account creation.
-          example:
-            - fieldId: individualLegalName
-              value: Crash Bandicoot
-            - fieldId: individualEmail
-              value: crashb@test.com
-            - fieldId: individualResidenceAddress
-              value:
-                street1: 1 Market St
-                street2: Suite 402
-                city: San Francisco
-                state: CA
-                postalCode: '94105'
-                country: US
-        referrerAccountId:
-          type: string
-          description: Supply your own Account ID when creating noncustodial accounts. This field is used to track which account referred the new account into our system
-        disableEmail:
-          type: boolean
-          description: Prevent all outbound emails to the account
-          example: false
       example:
         type: INDIVIDUAL
         country: US
@@ -6275,6 +6255,48 @@ components:
               state: CA
               postalCode: '94105'
               country: US
+      properties:
+        type:
+          type: string
+          description: 'The type of account, currently `INDIVIDUAL` is the only supported value'
+          example: INDIVIDUAL
+        country:
+          type: string
+          description: The country of the account holder. For individuals this is the country of residence. (Currently we only support US accounts)
+          example: US
+        subaccount:
+          type: boolean
+          description: 'When true, the newly created account will be a custodial subaccount owner by the caller. Otherwise, the account will be a standalone non-custodial account.'
+          example: true
+        profileFields:
+          type: array
+          description: An array of the Fields submitted at the time of Account creation. You can submit as many or as few fields as you need at the time of Account creation.
+          example:
+            - fieldId: individualLegalName
+              value: Crash Bandicoot
+            - fieldId: individualEmail
+              value: crashb@test.com
+            - fieldId: individualResidenceAddress
+              value:
+                street1: 1 Market St
+                street2: Suite 402
+                city: San Francisco
+                state: CA
+                postalCode: '94105'
+                country: US
+          items:
+            $ref: '#/components/schemas/ProfileFieldUpdate'
+        referrerAccountId:
+          type: string
+          description: Supply your own Account ID when creating noncustodial accounts. This field is used to track which account referred the new account into our system
+        disableEmail:
+          type: boolean
+          description: Prevent all outbound emails to the account
+          example: false
+      required:
+        - type
+        - country
+        - profileFields
     UpdateWalletRequest:
       title: UpdateWalletRequest
       type: object
@@ -6705,26 +6727,22 @@ components:
           type: string
           description: The identifier for the field to update
           example: individualLegalName
+          enum:
+            - individualDateOfBirth
+            - individualCellphoneNumber
+            - individualLegalName
+            - individualEmail
+            - individualResidenceAddress
+            - individualSsn
+            - individualGovernmentId
+            - individualProofOfAddress
+            - individualSourceOfFunds
         value:
           description: The new value to update the field with
           example: Crash Bandicoot
           anyOf:
             - type: string
-            - type: object
-              description: Address
-              properties:
-                street1:
-                  type: string
-                street2:
-                  type: string
-                city:
-                  type: string
-                state:
-                  type: string
-                postalCode:
-                  type: string
-                country:
-                  type: string
+            - $ref: '#/components/schemas/Address1'
       required:
         - fieldId
         - value
@@ -8856,11 +8874,6 @@ components:
         status: OPEN
     ProfileField1:
       title: ProfileField1
-      required:
-        - fieldId
-        - note
-        - fieldType
-        - status
       type: object
       properties:
         fieldId:
@@ -8872,9 +8885,21 @@ components:
         fieldType:
           type: string
           example: EMAIL
+          enum:
+            - STRING
+            - CELLPHONE
+            - EMAIL
+            - ADDRESS
+            - DATE
+            - DOCUMENT
+            - PAYMENT_METHOD
         status:
           type: string
           example: APPROVED
+      required:
+        - fieldId
+        - fieldType
+        - status
     GetReferredAccountsResponse:
       title: GetReferredAccountsResponse
       required:
