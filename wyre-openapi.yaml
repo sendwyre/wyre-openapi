@@ -1001,6 +1001,38 @@ paths:
       servers:
         - url: 'https://api.testwyre.com'
           variables: {}
+  '/v3/users/{userId}/onboarding':
+    post:
+      tags:
+        - White-Label Card Processing
+      summary: Get High Limits Onboarding
+      description: Get an onboarding link to High Limits KYC for an existing user
+      operationId: GetHighLimitsOnboarding
+      parameters:
+        - name: userId
+          in: path
+          description: 'The user identifier'
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: US_UBWHGZDG6W
+      responses:
+        '200':
+          description: 'Success'
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetHighLimitsOnboardingResponse'
+              examples:
+                example:
+                  value:
+                    onboardingUrl:  "https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS"
+      deprecated: false
+      servers:
+        - url: 'https://api.testwyre.com'
+          variables: {}
   /v2/wallets:
     get:
       tags:
@@ -8078,6 +8110,19 @@ components:
       required:
         - partnerId
         - payload
+    GetHighLimitsOnboardingResponse:
+      title: GetHighLimitsOnboardingResponse
+      type: object
+      description: 'The onboarding url for higher limits'
+      example:
+        onboardingUrl: "https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS"
+      properties:
+        onboardingUrl:
+          type: string
+          description: The onboarding url for higher limits
+          example: "https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS"
+      required:
+        - onboardingUrl
     CreateWalletResponse:
       title: CreateWalletResponse
       type: object
