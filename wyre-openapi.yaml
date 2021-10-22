@@ -1002,7 +1002,7 @@ paths:
         - url: 'https://api.testwyre.com'
           variables: {}
   '/v3/users/{userId}/onboarding':
-    post:
+    get:
       tags:
         - White-Label Card Processing
       summary: Get High Limits Onboarding
