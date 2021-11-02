@@ -231,7 +231,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateWalletOrderQuotationRequest'
             example:
-              amount: 5
+              amount: '5.0'
               sourceCurrency: USD
               destCurrency: ETH
               dest: 'ethereum:0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7'
@@ -434,8 +434,8 @@ paths:
                         owner: 'account:AC_HNW9ED7XARH'
                         status: PROCESSING
                         orderType: DOMESTIC
-                        sourceAmount: '15'
-                        purchaseAmount: '9.48'
+                        sourceAmount: 15
+                        purchaseAmount: 9.48
                         sourceCurrency: USD
                         destCurrency: ETH
                         transferId: TF_FWVEF7N9Q37
@@ -752,6 +752,7 @@ paths:
                   givenName: Crash
                   familyName: Bandicoot
                   email: test.wyre@sendwyre.com
+                  ipAddress: 1.1.1.1
                   phone: '+18538299555'
                   referenceId: AC_Y22RAQSKYV6
                   address:
@@ -1011,7 +1012,7 @@ paths:
       parameters:
         - name: userId
           in: path
-          description: 'The user identifier'
+          description: The user identifier
           required: true
           style: simple
           schema:
@@ -1019,7 +1020,7 @@ paths:
             example: US_UBWHGZDG6W
       responses:
         '200':
-          description: 'Success'
+          description: Success
           headers: {}
           content:
             application/json:
@@ -1028,7 +1029,7 @@ paths:
               examples:
                 example:
                   value:
-                    onboardingUrl:  "https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS"
+                    onboardingUrl: 'https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS'
       deprecated: false
       servers:
         - url: 'https://api.testwyre.com'
@@ -1188,37 +1189,41 @@ paths:
                     recordsFiltered: 8
                 Savings Wallet:
                   value:
-                    owner: 'account:AC_XAV3CRAC94P'
-                    pendingInterestBalances:
-                      ETH: 0
-                      USDC: 0
-                      BTC: 0
-                      DAI: 0.0016717362257274307
-                    savingRates:
-                      ETH: 0
-                      USDC: 0
-                      BTC: 0
-                      DAI: 0.01
-                    status: null
-                    depositAddresses:
-                      ETH: '0x2ea06b5c0fa2df04ef03f9408c5c9f35c87899c5'
-                      BTC: 1DWTHuPMgRk1LnQvXvuZSAv369KhMSs7Tu
-                      AVAX: X-avax1nn3ax8dfgmy3g80wxxmq5pltacp7ks6qzecuu0
-                      XLM: 'GBRNYP3MCASHJYUZLB7ORY37RNEL7Z6B2QATAZ7LGQLCTUU2ZLQVN65A:MBJBTDQARAM'
-                    totalBalances:
-                      DAI: 5.084864353254268
-                    availableBalances:
-                      DAI: 5.084864353254268
-                    pusherChannel: 42ca62bbacb5c1d10eae7a5624ddb5cb
-                    notes: null
-                    callbackUrl: null
-                    srn: 'wallet:WA_NA9X2N436GB'
-                    createdAt: 1597778481000
-                    balances:
-                      DAI: 5.084864353254268
-                    name: yolo2020
-                    id: WA_NA9X2N436GB
-                    type: SAVINGS
+                    data:
+                      - owner: 'account:AC_XAV3CRAC94P'
+                        pendingInterestBalances:
+                          ETH: 0
+                          USDC: 0
+                          BTC: 0
+                          DAI: 0.0016717362257274307
+                        savingRates:
+                          ETH: 0
+                          USDC: 0
+                          BTC: 0
+                          DAI: 0.01
+                        status: null
+                        depositAddresses:
+                          ETH: '0x2ea06b5c0fa2df04ef03f9408c5c9f35c87899c5'
+                          BTC: 1DWTHuPMgRk1LnQvXvuZSAv369KhMSs7Tu
+                          AVAX: X-avax1nn3ax8dfgmy3g80wxxmq5pltacp7ks6qzecuu0
+                          XLM: 'GBRNYP3MCASHJYUZLB7ORY37RNEL7Z6B2QATAZ7LGQLCTUU2ZLQVN65A:MBJBTDQARAM'
+                        totalBalances:
+                          DAI: 5.084864353254268
+                        availableBalances:
+                          DAI: 5.084864353254268
+                        pusherChannel: 42ca62bbacb5c1d10eae7a5624ddb5cb
+                        notes: null
+                        callbackUrl: null
+                        srn: 'wallet:WA_NA9X2N436GB'
+                        createdAt: 1597778481000
+                        balances:
+                          DAI: 5.084864353254268
+                        name: yolo2020
+                        id: WA_NA9X2N436GB
+                        type: SAVINGS
+                    position: 0
+                    recordsTotal: 1
+                    recordsFiltered: 0
       deprecated: false
       servers:
         - url: 'https://api.testwyre.com'
@@ -1370,7 +1375,7 @@ paths:
                       verificationData: ''
                       depositAddresses:
                         BTC: 2ShKKFb9gEP5uvRXtMbs7ykJAMPgoSSnSWB
-                        ETH: 8.580312470520771e+46
+                        ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
                       totalBalances:
                         BTC: 0
                         ETH: 0
@@ -1388,7 +1393,7 @@ paths:
                       verificationData: ''
                       depositAddresses:
                         BTC: 2ShKndBJNHvzABhBzLxvfzzD2vt64C36dPc
-                        ETH: 8.580312470520771e+46
+                        ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
                       totalBalances:
                         BTC: 0
                         ETH: 0
@@ -1406,7 +1411,7 @@ paths:
                       verificationData: ''
                       depositAddresses:
                         BTC: 2ShJsBPUb4HrNtgaNZk3YQSi2ynpZ5YY7sT
-                        ETH: 8.580312470520771e+46
+                        ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
                       totalBalances:
                         BTC: 0
                         ETH: 0
@@ -1667,6 +1672,7 @@ paths:
                   autoConfirm: true
               Deposit to EUR:
                 value:
+                  source: 'account:AC_ZW2JME83HMZ'
                   sourceCurrency: USD
                   sourceAmount: '22'
                   dest:
@@ -1703,6 +1709,7 @@ paths:
                   autoConfirm: true
               CNY transfer:
                 value:
+                  source: 'account:AC_ZW2JME83HMZ'
                   sourceCurrency: CNY
                   sourceAmount: '300'
                   dest:
@@ -2371,10 +2378,6 @@ paths:
             schema:
               description: ''
               type: object
-              x-examples:
-                example-1:
-                  sourceCurrency: BTC
-                  destCurrency: ETH
               properties:
                 sourceCurrency:
                   type: string
@@ -2418,12 +2421,6 @@ paths:
                   - destCurrency
                   - minSize
                   - maxSize
-                x-examples:
-                  example-1:
-                    sourceCurrency: BTC
-                    destCurrency: ETH
-                    minSize: 0.00102912
-                    maxSize: 200.80421687
               examples:
                 Success:
                   value:
@@ -2652,7 +2649,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreatePaymentMethodRequest'
+              $ref: '#/components/schemas/PaymentMethodCreationRequest'
             examples:
               Plaid Processor Token:
                 value:
@@ -5269,7 +5266,7 @@ paths:
       tags:
         - Global Payouts
       summary: List Supported Banks
-      description: ''
+      description: List the supported banks for payouts for a given country
       operationId: ListSupportedBanks
       parameters:
         - name: country
@@ -5983,7 +5980,7 @@ components:
         sessionId: RGFXT9DWMYR
         owner: 'account:AC_XXXXXXXXXXX'
         createdAt: 1628091367671
-        expiresAt: ''
+        expiresAt: null
         apiKey: AK-XXXX-XXXX-XXXX-XXXX
         type: FULL
         desc: User key
@@ -6029,51 +6026,6 @@ components:
         dest: 'paymentmethod:PA_L64RP4JB73L'
         destCurrency: USD
         message: Sending the user payment method
-      x-examples:
-        example:
-          value:
-            source: 'account:AC_YNWFWXDW3AG'
-            sourceCurrency: USD
-            sourceAmount: '200'
-            dest: 'paymentmethod:PA_L64RP4JB73L'
-            destCurrency: USD
-            message: Sending the user payment method
-        EUR deposit:
-          value:
-            sourceCurrency: USD
-            sourceAmount: '22'
-            dest:
-              paymentMethodType: INTERNATIONAL_TRANSFER
-              paymentType: LOCAL_BANK_WIRE
-              currency: EUR
-              country: AUT
-              beneficiaryType: INDIVIDUAL
-              beneficiaryName: beneficiaryName
-              swiftBic: '1234565798'
-              firstNameOnAccount: Sally
-              lastNameOnAccount: Smith
-              beneficiaryAddress: 1234 Main St.
-              beneficiaryAddress2: ''
-              beneficiaryCity: Los Angeles
-              beneficiaryPostal: '91604'
-              beneficiaryPhoneNumber: '+15555555555'
-              beneficaryState: CA
-              beneficiaryDobDay: 2
-              beneficiaryDobMonth: 12
-              beneficiaryDobYear: 1990
-              accountNumber: '1234567890123'
-              routingNumber: '123412312'
-              accountType: CHECKING
-              chargeablePM: false
-              senderName: Sender Name
-              senderAddress: Sender Address
-              senderCity: Lviv
-              senderCountry: UKR
-              senderPhoneNumber: '+333333333333'
-              sendingReason: Reason for sending
-            destCurrency: EUR
-            message: Sending to payment method
-            autoConfirm: true
       properties:
         source:
           type: string
@@ -6085,12 +6037,12 @@ components:
           type: string
           description: 'The amount to withdraw from the source, in units of `sourceCurrency` (only include `sourceAmount` OR `destAmount`, not both)'
         dest:
-          oneOf:
-            - type: string
-              description: 'An account, wallet, digital currency address or bank account to send the digital currency to. (for bitcoin address use `bitcoin:[address]`)'
-            - $ref: '#/components/schemas/CreatePaymentMethodRequest'
-            - $ref: '#/components/schemas/EURTransferDestination'
-            - $ref: '#/components/schemas/CNYTransferDestination'
+          anyOf:
+            - properties: {}
+              title: string
+              type: string
+              description: 'An account, wallet, digital currency address or bank account SRN to send the digital currency to. (e.g. for a bitcoin address use `bitcoin:[address]`)'
+            - $ref: '#/components/schemas/PaymentMethodCreationRequest'
           description: 'An account, wallet, digital currency address or bank account to send the digital currency to. (for bitcoin address use `bitcoin:[address]`)'
         destCurrency:
           type: string
@@ -6124,41 +6076,7 @@ components:
         - source
         - sourceCurrency
         - destCurrency
-    CreateWireTransferRequest:
-      title: CreateWireTransferRequest
-      required:
-        - source
-        - dest
-        - sourceCurrency
-        - destCurrency
-        - destAmount
-        - message
-        - autoConfirm
-      type: object
-      properties:
-        source:
-          type: string
-        dest:
-          type: string
-        sourceCurrency:
-          type: string
-        destCurrency:
-          type: string
-        destAmount:
-          type: integer
-          format: int32
-        message:
-          type: string
-        autoConfirm:
-          type: boolean
-      example:
-        source: 'paymentMethod:PA_TXM6WTN88HG'
-        dest: 'account:AC_YNWFWXDW3AG'
-        sourceCurrency: USD
-        destCurrency: USD
-        destAmount: 100
-        message: USD Wire Transfer
-        autoConfirm: true
+      description: ''
     UpdateAccountRequest:
       title: UpdateAccountRequest
       required:
@@ -6222,7 +6140,7 @@ components:
       type: object
       example:
         XLM: 'GD7WXI7AOAK2CIPZVBEFYLS2NQZI2J4WN4HFYQQ4A2OMFVWGWAL3IW7K:4VBZR6DJUWL'
-        ETH: 1.0985101296270776e+48
+        ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
         BTC: mx2H9Jo8jJ8FJC6wStMYyCoR3f2b1ib9Sq
         AVAX: X-fuji19u0crzjtp9ulvauqj2dxfgsepagnrvkycdkynw
       properties:
@@ -6238,18 +6156,6 @@ components:
         AVAX:
           type: string
           example: fuji19u0crzjtp9ulvauqj2dxfgsepagnrvkycdkynw
-      required:
-        - XLM
-        - ETH
-        - BTC
-        - AVAX
-      x-examples:
-        example:
-          value:
-            XLM: 'GD7WXI7AOAK2CIPZVBEFYLS2NQZI2J4WN4HFYQQ4A2OMFVWGWAL3IW7K:4VBZR6DJUWL'
-            ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
-            BTC: mx2H9Jo8jJ8FJC6wStMYyCoR3f2b1ib9Sq
-            AVAX: X-fuji19u0crzjtp9ulvauqj2dxfgsepagnrvkycdkynw
     SubscribetoWebhookRequest:
       title: SubscribetoWebhookRequest
       required:
@@ -6341,10 +6247,6 @@ components:
           type: string
         notes:
           type: string
-      x-examples:
-        example:
-          value:
-            name: random-uid-value-from-your-app-222
     AttachBlockchaintoPaymentMethodRequest:
       title: AttachBlockchaintoPaymentMethodRequest
       type: object
@@ -6365,32 +6267,6 @@ components:
           default: false
       required:
         - blockchain
-      x-examples:
-        example:
-          value:
-            blockchain: BTC
-    CreatePaymentMethodLocalTransferRequest:
-      title: CreatePaymentMethodLocalTransferRequest
-      required:
-        - plaidProcessorToken
-        - paymentMethodType
-        - country
-      type: object
-      properties:
-        plaidProcessorToken:
-          type: string
-          example: processor-sandbox-0asd1-a92nc
-        paymentMethodType:
-          type: string
-          description: Can be `LOCAL_TRANSFER` or `INTERNATIONAL TRANSFER`
-          example: LOCAL_TRANSFER
-        country:
-          type: string
-          example: US
-      example:
-        plaidProcessorToken: processor-sandbox-0asd1-a92nc
-        paymentMethodType: LOCAL_TRANSFER
-        country: US
     CreateWalletRequest:
       title: CreateWalletRequest
       type: object
@@ -6425,13 +6301,6 @@ components:
           nullable: true
       required:
         - name
-      x-examples:
-        example:
-          value:
-            name: 'user:6d5dc801'
-            callbackUrl: 'https://callback.url'
-            type: DEFAULT
-            notes: User Wallet
     Address:
       title: Address
       type: object
@@ -6498,21 +6367,6 @@ components:
           state: CA
           postalCode: '94105'
           country: US
-      x-examples:
-        example:
-          value:
-            walletType: DEBIT_CARD
-            accountId: AC_XXXXXXXXXX
-            sourceCurrency: USD
-            address:
-              street1: 1234 Fake St
-              city: San Francisco
-              state: CA
-              postalCode: '94105'
-              country: US
-            firstName: Crash
-            lastName: Bandicoot
-            cellNumber: '+15558675309'
       properties:
         accountId:
           type: string
@@ -6853,19 +6707,19 @@ components:
           type: string
           example: USD
         sourceAmount:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 5.95
         destCurrency:
           type: string
           example: ETH
         destAmount:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 0.00988023952095808
         exchangeRate:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 0.00197604790419162
         equivalencies:
           type: object
@@ -6943,7 +6797,7 @@ components:
           example: RUNNING_CHECKS
         sourceAmount:
           type: number
-          format: int32
+          format: double
           example: 1.84
         sourceCurrency:
           type: string
@@ -6962,10 +6816,12 @@ components:
             - APPLE_PAY
         transferId:
           type: string
+          nullable: true
           description: 'Once status is `COMPLETE` or `PROCESSING`, the transferId should be provided (otherwise it will be `null`)'
           example: 'null'
         errorMessage:
           type: string
+          nullable: true
           description: 'If there was an error, the message will be provided (if there is no error, this will be `null`)'
           example: 'null'
         accountId:
@@ -7006,30 +6862,36 @@ components:
             accountId: AC_QXWVTRWPM3U
             paymentNetworkErrorCode: ISO_8583_05
             internalErrorCode: DO_NOT_HONOR
+            walletType: TOKENIZED_PAYMENT_METHOD
           properties:
             orderType:
               type: string
               example: INTERNATIONAL
             purchaseAmount:
               type: number
-              format: int32
+              format: double
               example: 200
             authCodeRequested:
               type: boolean
               example: false
             errorCategory:
               type: string
+              nullable: true
               example: GENERAL
             errorMessage:
               type: string
+              nullable: true
               example: We are unable to process your order at this time.
             failureReason:
               type: string
+              nullable: true
             paymentNetworkErrorCode:
               type: string
+              nullable: true
               example: ISO_8583_05
             internalErrorCode:
               type: string
+              nullable: true
               example: DO_NOT_HONOR
             walletType:
               type: string
@@ -7046,15 +6908,12 @@ components:
           required:
             - orderType
             - purchaseAmount
-            - authCodeRequested
+            - authCodesRequested
             - errorCategory
             - errorMessage
             - failureReason
             - paymentNetworkErrorCode
             - internalErrorCode
-            - walletType
-            - usdSourceAmount
-            - usdPurchaseAmount
       description: ''
     ListOrdersPaginatedResponse:
       title: ListOrdersPaginatedResponse
@@ -7146,73 +7005,6 @@ components:
     TrackWidgetOrderResponse:
       description: ''
       type: object
-      x-examples:
-        example:
-          transferId: TF_MDA6MAY848D
-          feeCurrency: USD
-          fee: 0.84
-          fees:
-            ETH: 0.001
-            USD: 0.33
-          sourceCurrency: USD
-          destCurrency: ETH
-          sourceAmount: 1.84
-          destAmount: 0.00198553330656471
-          destSrn: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-          from: Walletorderholding WO_ELTUVYCAFPG
-          to: ''
-          rate: 0.00197604790419162
-          customId: ''
-          status: COMPLETED
-          blockchainNetworkTx: ''
-          message: ''
-          transferHistoryEntryType: OUTGOING
-          successTimeline:
-            - statusDetails: Initiating Transfer
-              state: INITIATED
-              createdAt: 1576263690000
-            - statusDetails: Processing Exchange
-              state: PENDING
-              createdAt: 1576263690000
-            - statusDetails: Processing Deposit
-              state: PENDING
-              createdAt: 1576263690000
-          failedTimeline: []
-          failureReason: ''
-          reversalReason: ''
-          value:
-            transferId: TF_MDA6MAY848D
-            feeCurrency: USD
-            fee: 0.84
-            fees:
-              ETH: 0.001
-              USD: 0.33
-            sourceCurrency: USD
-            destCurrency: ETH
-            sourceAmount: 1.84
-            destAmount: 0.00198553330656471
-            destSrn: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-            from: Walletorderholding WO_ELTUVYCAFPG
-            to: ''
-            rate: 0.00197604790419162
-            customId: ''
-            status: COMPLETED
-            blockchainNetworkTx: ''
-            message: ''
-            transferHistoryEntryType: OUTGOING
-            successTimeline:
-              - statusDetails: Initiating Transfer
-                state: INITIATED
-                createdAt: 1576263690000
-              - statusDetails: Processing Exchange
-                state: PENDING
-                createdAt: 1576263690000
-              - statusDetails: Processing Deposit
-                state: PENDING
-                createdAt: 1576263690000
-            failedTimeline: []
-            failureReason: ''
-            reversalReason: ''
       properties:
         transferId:
           type: string
@@ -7250,17 +7042,21 @@ components:
           minLength: 1
         to:
           type: string
+          nullable: true
         rate:
           type: number
         customId:
           type: string
+          nullable: true
         status:
           type: string
           minLength: 1
         blockchainNetworkTx:
           type: string
+          nullable: true
         message:
           type: string
+          nullable: true
         transferHistoryEntryType:
           type: string
           minLength: 1
@@ -7290,8 +7086,10 @@ components:
             type: object
         failureReason:
           type: string
+          nullable: true
         reversalReason:
           type: string
+          nullable: true
       required:
         - transferId
         - feeCurrency
@@ -7319,193 +7117,12 @@ components:
       description: ''
       minItems: 1
       uniqueItems: true
-      x-examples:
-        example:
-          - DZ
-          - AR
-          - AU
-          - AT
-          - BE
-          - BO
-          - BR
-          - CA
-          - CL
-          - CO
-          - CR
-          - CY
-          - CZ
-          - DK
-          - DO
-          - EE
-          - FI
-          - FR
-          - DE
-          - GR
-          - HK
-          - IS
-          - IN
-          - ID
-          - IE
-          - IL
-          - IT
-          - JP
-          - LV
-          - LT
-          - LU
-          - MY
-          - MX
-          - NP
-          - NL
-          - NZ
-          - 'NO'
-          - PY
-          - PE
-          - PH
-          - PL
-          - PT
-          - SG
-          - SK
-          - SI
-          - ZA
-          - KR
-          - ES
-          - SE
-          - CH
-          - TZ
-          - TH
-          - TR
-          - GB
-          - US
-          - VN
       items:
         type: string
         example: US
     GetReservationResponse:
       description: ''
       type: object
-      x-examples:
-        example:
-          amount: null
-          sourceCurrency: USD
-          destCurrency: ETH
-          dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-          referrerAccountId: AC______AAAA
-          sourceAmount: null
-          destAmount: 0.02
-          amountIncludeFees: true
-          street1: 1550 Bryant Street
-          city: San Francisco
-          state: CA
-          postalCode: '94103'
-          country: US
-          firstName: ''
-          lastName: ''
-          phone: ...
-          email: ''
-          lockFields:
-            - sourceAmount
-            - destAmount
-            - amountIncludeFees
-            - paymentMethod
-            - country
-            - sourceCurrency
-            - destCurrency
-            - dest
-            - referrerAccountId
-          redirectUrl: 'http://google.com'
-          failureRedirectUrl: 'http://google.com'
-          paymentMethod: debit-card
-          referenceId: null
-          hideTrackBtn: null
-          quote:
-            sourceCurrency: USD
-            sourceAmount: 8.89
-            sourceAmountWithoutFees: 5.45
-            destCurrency: ETH
-            destAmount: 0.013
-            exchangeRate: 0.0023886138613861386
-            equivalencies:
-              GUSD: 5.26
-              USDC: 5.255737
-              EUR: 4.44
-              USDT: 5.255217
-              GBP: 4.03
-              DAI: 6.081825531005859
-              USD: 5.25
-              CAD: 6.93
-              BUSD: 5.255736808466775
-              USDS: 5.255737
-              HUSD: 5.25573681
-              BTC: 0.00039169
-              ETH: 0.013
-              AUD: 7.38
-              PAX: 5.255736808466775
-              WETH: 0.013
-            fees:
-              ETH: 0.007
-              USD: 0.51
-          quoteLockRequest: true
-          value:
-            amount: null
-            sourceCurrency: USD
-            destCurrency: ETH
-            dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-            referrerAccountId: AC______AAAA
-            sourceAmount: null
-            destAmount: 0.02
-            amountIncludeFees: true
-            street1: 1550 Bryant Street
-            city: San Francisco
-            state: CA
-            postalCode: '94103'
-            country: US
-            firstName: ''
-            lastName: ''
-            phone: ...
-            email: ''
-            lockFields:
-              - sourceAmount
-              - destAmount
-              - amountIncludeFees
-              - paymentMethod
-              - country
-              - sourceCurrency
-              - destCurrency
-              - dest
-              - referrerAccountId
-            redirectUrl: 'http://google.com'
-            failureRedirectUrl: 'http://google.com'
-            paymentMethod: debit-card
-            referenceId: null
-            hideTrackBtn: null
-            quote:
-              sourceCurrency: USD
-              sourceAmount: 8.89
-              sourceAmountWithoutFees: 5.45
-              destCurrency: ETH
-              destAmount: 0.013
-              exchangeRate: 0.0023886138613861386
-              equivalencies:
-                GUSD: 5.26
-                USDC: 5.255737
-                EUR: 4.44
-                USDT: 5.255217
-                GBP: 4.03
-                DAI: 6.081825531005859
-                USD: 5.25
-                CAD: 6.93
-                BUSD: 5.255736808466775
-                USDS: 5.255737
-                HUSD: 5.25573681
-                BTC: 0.00039169
-                ETH: 0.013
-                AUD: 7.38
-                PAX: 5.255736808466775
-                WETH: 0.013
-              fees:
-                ETH: 0.007
-                USD: 0.51
-            quoteLockRequest: true
       properties:
         amount:
           type: number
@@ -7688,37 +7305,6 @@ components:
     CreateOrderResponse:
       description: ''
       type: object
-      x-examples:
-        example:
-          id: WO_ELTUVYCAFPG
-          createdAt: 1576263687643
-          owner: 'account:AC_RNWQNRAZFPC'
-          status: PROCESSING
-          transferId: TF_MDA6MAY848D
-          sourceAmount: 1.84
-          sourceCurrency: USD
-          destCurrency: ETH
-          dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-          walletType: APPLE_PAY
-          email: user@company.com
-          errorMessage: null
-          accountId: AC_RNWQNRAZFPC
-          paymentMethodName: Visa 2942
-          value:
-            id: WO_ELTUVYCAFPG
-            createdAt: 1576263687643
-            owner: 'account:AC_RNWQNRAZFPC'
-            status: PROCESSING
-            transferId: TF_MDA6MAY848D
-            sourceAmount: 1.84
-            sourceCurrency: USD
-            destCurrency: ETH
-            dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
-            walletType: APPLE_PAY
-            email: user@company.com
-            errorMessage: null
-            accountId: AC_RNWQNRAZFPC
-            paymentMethodName: Visa 2942
       properties:
         id:
           type: string
@@ -7777,17 +7363,6 @@ components:
     GetAuthorizationResponse:
       description: ''
       type: object
-      x-examples:
-        example:
-          walletOrderId: WO_9PUXWLZD888
-          smsNeeded: true
-          card2faNeeded: false
-          authorization3dsUrl: null
-          value:
-            walletOrderId: WO_9PUXWLZD888
-            smsNeeded: true
-            card2faNeeded: false
-            authorization3dsUrl: null
       properties:
         walletOrderId:
           type: string
@@ -7798,6 +7373,7 @@ components:
           type: boolean
         authorization3dsUrl:
           type: string
+          nullable: true
       required:
         - walletOrderId
         - smsNeeded
@@ -7856,11 +7432,6 @@ components:
       example:
         walletOrderId: WO_DX6B3UAVN8B
         success: true
-      x-examples:
-        example:
-          value:
-            walletOrderId: WO_DX6B3UAVN8B
-            success: true
     RefundOrderResponse:
       title: RefundOrderResponse
       type: object
@@ -8113,14 +7684,14 @@ components:
     GetHighLimitsOnboardingResponse:
       title: GetHighLimitsOnboardingResponse
       type: object
-      description: 'The onboarding url for higher limits'
+      description: The onboarding url for higher limits
       example:
-        onboardingUrl: "https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS"
+        onboardingUrl: 'https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS'
       properties:
         onboardingUrl:
           type: string
           description: The onboarding url for higher limits
-          example: "https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS"
+          example: 'https://pay.sendwyre.com/users/US_AAAAAAAA/onboarding/AAAABBBCCCDDASDASDASEQWADS'
       required:
         - onboardingUrl
     CreateWalletResponse:
@@ -8140,41 +7711,22 @@ components:
           BTC: 1GyDFgcbzdHNzfF8ammKbMqqhUtCsDLxAX
           AVAX: X-avax1nn3ax8dfgmy3g80wxxmq5pltacp7ks6qzecuu0
           XLM: 'GBRNYP3MCASHJYUZLB7ORY37RNEL7Z6B2QATAZ7LGQLCTUU2ZLQVN65A:MBJBTDQARAM'
-          ETH: 9.52521075070919e+47
+          ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
         totalBalances: {}
         availableBalances: {}
         name: 'user:6d5dc801'
         id: WA_XXXXXXXXXXX
         type: DEFAULT
-      x-examples:
-        example:
-          value:
-            owner: 'account:AC_XXXXXXXXXXX'
-            status: ''
-            callbackUrl: ''
-            pusherChannel: d89ecb3deae49a753c0df3a2166f46dd
-            balances: {}
-            notes: ''
-            createdAt: 1610780846301
-            srn: 'wallet:WA_XXXXXXXXXXXX'
-            depositAddresses:
-              BTC: 1GyDFgcbzdHNzfF8ammKbMqqhUtCsDLxAX
-              AVAX: X-avax1nn3ax8dfgmy3g80wxxmq5pltacp7ks6qzecuu0
-              XLM: 'GBRNYP3MCASHJYUZLB7ORY37RNEL7Z6B2QATAZ7LGQLCTUU2ZLQVN65A:MBJBTDQARAM'
-              ETH: 9.52521075070919e+47
-            totalBalances: {}
-            availableBalances: {}
-            name: 'user:6d5dc801'
-            id: WA_XXXXXXXXXXX
-            type: DEFAULT
       properties:
         owner:
           type: string
         status:
           type: string
+          nullable: true
           example: 'null'
         callbackUrl:
           type: string
+          nullable: true
           example: 'https://your.callback.url'
         pusherChannel:
           type: string
@@ -8208,13 +7760,11 @@ components:
           type: string
           example: DEFAULT
       required:
-        - owner
         - status
         - callbackUrl
         - pusherChannel
         - balances
         - notes
-        - createdAt
         - srn
         - depositAddresses
         - totalBalances
@@ -8236,7 +7786,7 @@ components:
             srn: 'wallet:WA_XXXXXXXXX1'
             notes: ''
             depositAddresses:
-              ETH: 6.036424033906464e+47
+              ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
               BTC: mppijDwMXhWqN66V3D5JJCxzuTyFWnUQMs
             totalBalances: {}
             availableBalances: {}
@@ -8252,7 +7802,7 @@ components:
             srn: 'wallet:WA_XXXXXXXXXX2'
             notes: ''
             depositAddresses:
-              ETH: 2.5912912882295587e+47
+              ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
               BTC: n2QnkPgeN5c3snewWbQ9P1uouDRywPRUeu
             totalBalances: {}
             availableBalances: {}
@@ -8268,7 +7818,7 @@ components:
             srn: 'wallet:WA_XXXXXXX3'
             notes: ''
             depositAddresses:
-              ETH: 1.4781738219627369e+47
+              ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
               BTC: mjrcF3dmUvafzXH3i1ojfPKzsiZ9YqDNNk
             totalBalances: {}
             availableBalances: {}
@@ -8297,7 +7847,7 @@ components:
             srn: 'wallet:WA_XXXXXXXX4'
             notes: ''
             depositAddresses:
-              ETH: 2.8485170211274507e+47
+              ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
               BTC: mxsd7xTcVow7bnxdMhwiyTdWvXKqar1nZG
             totalBalances:
               DAI: 16.8362282878412
@@ -8324,7 +7874,7 @@ components:
             srn: 'wallet:WA_XXXXXXXXX5'
             notes: ''
             depositAddresses:
-              ETH: 6.198191519734388e+47
+              ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
               BTC: mgb2ZVVXyycug7aJi8tQimQNEBXGXVzutq
             totalBalances:
               DAI: 5
@@ -8339,7 +7889,7 @@ components:
               MXN: 1001.5
               USDC: 20
             callbackUrl: ''
-            name: 98098098098
+            name: '98098098098'
             id: WA_XXXXXXXXX5
             type: DEFAULT
         position: 20
@@ -8352,142 +7902,84 @@ components:
           items:
             $ref: '#/components/schemas/CreateWalletResponse'
         position:
-          type: string
-          example: '20'
+          type: integer
+          format: int32
+          example: 20
         recordsTotal:
-          type: string
-          example: '8'
+          type: integer
+          format: int32
+          example: 8
         recordsFiltered:
-          type: string
-          example: '8'
+          type: integer
+          format: int32
+          example: 8
       required:
         - data
         - position
         - recordsTotal
         - recordsFiltered
-      x-examples:
-        example:
-          value:
-            data:
-              - owner: 'account:AC_XXXXXXXXX1'
-                status: ''
-                balances: {}
-                createdAt: 1610571740000
-                pusherChannel: d89ecb3deae49a753c0df3a2166f46dd
-                srn: 'wallet:WA_XXXXXXXXX1'
-                notes: ''
-                depositAddresses:
-                  ETH: 6.036424033906464e+47
-                  BTC: mppijDwMXhWqN66V3D5JJCxzuTyFWnUQMs
-                totalBalances: {}
-                availableBalances: {}
-                callbackUrl: ''
-                name: user1
-                id: WA_XXXXXXXXXX1
-                type: DEFAULT
-              - owner: 'account:AC_XXXXXXXXX1'
-                status: ''
-                balances: {}
-                createdAt: 1610571400000
-                pusherChannel: d89ecb3deae49a753c0df3a2166f46dd
-                srn: 'wallet:WA_XXXXXXXXXX2'
-                notes: ''
-                depositAddresses:
-                  ETH: 2.5912912882295587e+47
-                  BTC: n2QnkPgeN5c3snewWbQ9P1uouDRywPRUeu
-                totalBalances: {}
-                availableBalances: {}
-                callbackUrl: ''
-                name: user2
-                id: WA_XXXXXXXXXX2
-                type: DEFAULT
-              - owner: 'account:AC_XXXXXXXXXX'
-                status: ''
-                balances: {}
-                createdAt: 1610571021000
-                pusherChannel: d89ecb3deae49a753c0df3a2166f46dd
-                srn: 'wallet:WA_XXXXXXX3'
-                notes: ''
-                depositAddresses:
-                  ETH: 1.4781738219627369e+47
-                  BTC: mjrcF3dmUvafzXH3i1ojfPKzsiZ9YqDNNk
-                totalBalances: {}
-                availableBalances: {}
-                callbackUrl: ''
-                name: user3
-                id: WA_XXXXXXXXX3
-                type: DEFAULT
-              - owner: 'account:AC_XXXXXXXXX1'
-                pendingInterestBalances:
-                  ETH: 0
-                  DAI: 0
-                  USDC: 0
-                  BTC: 0.00000190099863013697
-                savingRates:
-                  ETH: 0.04
-                  DAI: 0
-                  USDC: 0.08
-                  BTC: 0.035
-                status: ''
-                balances:
-                  DAI: 16.8362282878412
-                  USDC: 7.084764
-                  BTC: 0.0026321
-                createdAt: 1609186777000
-                pusherChannel: d89ecb3deae49a753c0df3a2166f46dd
-                srn: 'wallet:WA_XXXXXXXX4'
-                notes: ''
-                depositAddresses:
-                  ETH: 2.8485170211274507e+47
-                  BTC: mxsd7xTcVow7bnxdMhwiyTdWvXKqar1nZG
-                totalBalances:
-                  DAI: 16.8362282878412
-                  USDC: 7.084764
-                  BTC: 0.0026321
-                availableBalances:
-                  DAI: 16.8362282878412
-                  USDC: 7.084764
-                  BTC: 0.0026321
-                callbackUrl: ''
-                name: user4
-                id: WA_XXXXXXXXX4
-                type: SAVINGS
-              - owner: 'account:AC_XXXXXXXXX1'
-                status: ''
-                balances:
-                  DAI: 5
-                  AUD: 32.81
-                  USD: 2880.28
-                  MXN: 1001.5
-                  USDC: 20
-                createdAt: 1608507863000
-                pusherChannel: user5
-                srn: 'wallet:WA_XXXXXXXXX5'
-                notes: ''
-                depositAddresses:
-                  ETH: 6.198191519734388e+47
-                  BTC: mgb2ZVVXyycug7aJi8tQimQNEBXGXVzutq
-                totalBalances:
-                  DAI: 5
-                  AUD: 32.81
-                  USD: 2880.28
-                  MXN: 1001.5
-                  USDC: 20
-                availableBalances:
-                  DAI: 5
-                  AUD: 32.81
-                  USD: 1880.28
-                  MXN: 1001.5
-                  USDC: 20
-                callbackUrl: ''
-                name: 98098098098
-                id: WA_XXXXXXXXX5
-                type: DEFAULT
-            position: 20
-            recordsTotal: 8
-            recordsFiltered: 8
     CreateMultipleWalletsResponse:
       title: CreateMultipleWalletsResponse
+      type: array
+      items:
+        $ref: '#/components/schemas/CreateMultipleWalletsResponseItem'
+      example:
+        - name: walletOne
+          id: WA_XXXXXXX1
+          notes: ''
+          srn: 'wallet:WA_XXXXXXX1'
+          callbackUrl: ''
+          verificationData: ''
+          depositAddresses:
+            BTC: 2ShKKFb9gEP5uvRXtMbs7ykJAMPgoSSnSWB
+            ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
+          totalBalances:
+            BTC: 0
+            ETH: 0
+          availableBalances:
+            BTC: 0
+            ETH: 0
+          balances:
+            BTC: 0
+            ETH: 0
+        - name: walletTwo
+          id: WA_XXXXXXX2
+          notes: ''
+          srn: 'wallet:WA_XXXXXXX2'
+          callbackUrl: ''
+          verificationData: ''
+          depositAddresses:
+            BTC: 2ShKndBJNHvzABhBzLxvfzzD2vt64C36dPc
+            ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
+          totalBalances:
+            BTC: 0
+            ETH: 0
+          availableBalances:
+            BTC: 0
+            ETH: 0
+          balances:
+            BTC: 0
+            ETH: 0
+        - name: walletThree
+          id: WA_XXXXXXX3
+          notes: ''
+          srn: 'wallet:WA_XXXXXXX3'
+          callbackUrl: ''
+          verificationData: ''
+          depositAddresses:
+            BTC: 2ShJsBPUb4HrNtgaNZk3YQSi2ynpZ5YY7sT
+            ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
+          totalBalances:
+            BTC: 0
+            ETH: 0
+          availableBalances:
+            BTC: 0
+            ETH: 0
+          balances:
+            BTC: 0
+            ETH: 0
+    CreateMultipleWalletsResponseItem:
+      title: CreateMultipleWalletsResponseItem
       required:
         - name
         - id
@@ -8528,65 +8020,26 @@ components:
         balances:
           $ref: '#/components/schemas/Balances'
       example:
-        - name: walletOne
-          id: WA_XXXXXXX1
-          notes: ''
-          srn: 'wallet:WA_XXXXXXX1'
-          callbackUrl: ''
-          verificationData: ''
-          depositAddresses:
-            BTC: 2ShKKFb9gEP5uvRXtMbs7ykJAMPgoSSnSWB
-            ETH: 8.580312470520771e+46
-          totalBalances:
-            BTC: 0
-            ETH: 0
-          availableBalances:
-            BTC: 0
-            ETH: 0
-          balances:
-            BTC: 0
-            ETH: 0
-        - name: walletTwo
-          id: WA_XXXXXXX2
-          notes: ''
-          srn: 'wallet:WA_XXXXXXX2'
-          callbackUrl: ''
-          verificationData: ''
-          depositAddresses:
-            BTC: 2ShKndBJNHvzABhBzLxvfzzD2vt64C36dPc
-            ETH: 8.580312470520771e+46
-          totalBalances:
-            BTC: 0
-            ETH: 0
-          availableBalances:
-            BTC: 0
-            ETH: 0
-          balances:
-            BTC: 0
-            ETH: 0
-        - name: walletThree
-          id: WA_XXXXXXX3
-          notes: ''
-          srn: 'wallet:WA_XXXXXXX3'
-          callbackUrl: ''
-          verificationData: ''
-          depositAddresses:
-            BTC: 2ShJsBPUb4HrNtgaNZk3YQSi2ynpZ5YY7sT
-            ETH: 8.580312470520771e+46
-          totalBalances:
-            BTC: 0
-            ETH: 0
-          availableBalances:
-            BTC: 0
-            ETH: 0
-          balances:
-            BTC: 0
-            ETH: 0
+        name: walletOne
+        id: WA_XXXXXXX1
+        notes: ''
+        srn: 'wallet:WA_XXXXXXX1'
+        callbackUrl: ''
+        verificationData: ''
+        depositAddresses:
+          BTC: 2ShKKFb9gEP5uvRXtMbs7ykJAMPgoSSnSWB
+          ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
+        totalBalances:
+          BTC: 0
+          ETH: 0
+        availableBalances:
+          BTC: 0
+          ETH: 0
+        balances:
+          BTC: 0
+          ETH: 0
     DepositAddresses1:
       title: DepositAddresses1
-      required:
-        - BTC
-        - ETH
       type: object
       properties:
         BTC:
@@ -8621,22 +8074,14 @@ components:
       properties:
         BTC:
           type: number
-          format: int32
+          format: double
           example: 0
           nullable: true
         ETH:
           type: number
-          format: int32
+          format: double
           example: 0
           nullable: true
-      required:
-        - BTC
-        - ETH
-      x-examples:
-        example:
-          value:
-            BTC: 0
-            ETH: 0
     GetWalletResponse:
       title: GetWalletResponse
       required:
@@ -8665,9 +8110,9 @@ components:
         balances:
           $ref: '#/components/schemas/Balances111'
         createdAt:
-          type: string
-          format: date-time
-          example: '1608507863000'
+          type: integer
+          format: int64
+          example: 1608507863000
         pusherChannel:
           type: string
           example: d89ecb3deae49a753c0df3a2166f46dd
@@ -8711,7 +8156,7 @@ components:
         srn: 'wallet:WA_XXXXXXXXXX'
         notes: ''
         depositAddresses:
-          ETH: 6.198191519734388e+47
+          ETH: '0x084abe6434a0fbe37f666ce5d8fdb803296dd3b2'
           BTC: mgb2ZVVXyycug7aJi8tQimQNEBXGXVzutq
           AVAX: X-avax1nn3ax8dfgmy3g80wxxmq5pltacp7ks6qzecuu0
           XLM: 'GBRNYP3MCASHJYUZLB7ORY37RNEL7Z6B2QATAZ7LGQLCTUU2ZLQVN65A:MBJBTDQARAM'
@@ -8775,31 +8220,6 @@ components:
         USD:
           type: number
           example: 2880.28
-        MXN:
-          type: number
-          example: 1001.5
-        USDC:
-          type: number
-          example: 20
-    AvailableBalancesAll:
-      title: AvailableBalancesAll
-      required:
-        - DAI
-        - AUD
-        - USD
-        - MXN
-        - USDC
-      type: object
-      properties:
-        DAI:
-          type: number
-          example: 5
-        AUD:
-          type: number
-          example: 32.81
-        USD:
-          type: number
-          example: 1880.28
         MXN:
           type: number
           example: 1001.5
@@ -10550,19 +9970,6 @@ components:
         status: PARTIALLY_SUBMITTED
     GetExchangeRatesResponse:
       title: GetExchangeRatesResponse
-      required:
-        - DAIUSD
-        - ETHGBP
-        - ETHDAI
-        - BTCDAI
-        - BTCUSD
-        - EURCNY
-        - ETHUSD
-        - BRLEUR
-        - EURBTC
-        - BRLHKD
-        - DAIAUD
-        - DAIGBP
       type: object
       properties:
         DAIUSD:
@@ -11338,11 +10745,12 @@ components:
       type: object
       properties:
         BTC:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 0
         USD:
           type: number
+          format: double
           example: 0.02
     ListTransfersPaginatedResponse:
       title: ListTransfersPaginatedResponse
@@ -11948,8 +11356,796 @@ components:
         ipAddress: 97.100.209.41
         resolvedCountryCode: US
         result: ACCEPTED
+    LocalTransferPlaidProcessorToken:
+      title: Plaid Processor Token
+      properties:
+        country:
+          type: string
+          enum:
+            - US
+        plaidProcessorToken:
+          type: string
+        paymentMethodType:
+          type: string
+          enum:
+            - LOCAL_TRANSFER
+          example: LOCAL_TRANSFER
+      required:
+        - plaidProcessorToken
+    BankAccount:
+      title: Bank Account
+      properties:
+        senderName:
+          type: string
+        senderAddress:
+          type: string
+        senderCity:
+          type: string
+        senderCountry:
+          type: string
+        senderPhoneNumber:
+          type: string
+        sendingReason:
+          type: string
+      oneOf:
+        - $ref: '#/components/schemas/USBankAccount'
+        - $ref: '#/components/schemas/BRBankAccount'
+        - $ref: '#/components/schemas/CNBankAccount'
+        - $ref: '#/components/schemas/MXBankAccount'
+        - $ref: '#/components/schemas/AUBankAccount'
+      discriminator:
+        propertyName: country
+        mapping:
+          US: '#/components/schemas/USBankAccount'
+          BR: '#/components/schemas/BRBankAccount'
+          CN: '#/components/schemas/CNBankAccount'
+          MX: '#/components/schemas/MXBankAccount'
+          AU: '#/components/schemas/AUBankAccount'
+    USBankAccount:
+      title: US Bank Account
+      oneOf:
+        - $ref: '#/components/schemas/USIndividualBankAccount'
+        - $ref: '#/components/schemas/USCorporateBankAccount'
+      discriminator:
+        propertyName: beneficiaryType
+        mapping:
+          INDIVIDUAL: '#/components/schemas/USIndividualBankAccount'
+          CORPORATE: '#/components/schemas/USCorporateBankAccount'
+    BRBankAccount:
+      title: BR Bank Account
+      oneOf:
+        - $ref: '#/components/schemas/BRIndividualBankAccount'
+        - $ref: '#/components/schemas/BRCorporateBankAccount'
+      discriminator:
+        propertyName: beneficiaryType
+        mapping:
+          INDIVIDUAL: '#/components/schemas/BRIndividualBankAccount'
+          CORPORATE: '#/components/schemas/BRCorporateBankAccount'
+    CNBankAccount:
+      title: CN Bank Account
+      oneOf:
+        - $ref: '#/components/schemas/CNIndividualBankAccount'
+        - $ref: '#/components/schemas/CNCorporateBankAccount'
+      discriminator:
+        propertyName: beneficiaryType
+        mapping:
+          INDIVIDUAL: '#/components/schemas/CNIndividualBankAccount'
+          CORPORATE: '#/components/schemas/CNCorporateBankAccount'
+    MXBankAccount:
+      title: MX Bank Account
+      oneOf:
+        - $ref: '#/components/schemas/MXIndividualBankAccount'
+        - $ref: '#/components/schemas/MXCorporateBankAccount'
+      discriminator:
+        propertyName: beneficiaryType
+        mapping:
+          INDIVIDUAL: '#/components/schemas/MXIndividualBankAccount'
+          CORPORATE: '#/components/schemas/MXCorporateBankAccount'
+    BRIndividualBankAccount:
+      title: BR Individual Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+          example: INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - BR
+          example: BR
+        currency:
+          type: string
+          enum:
+            - BRL
+          example: BRL
+        beneficiaryType:
+          type: string
+          enum:
+            - INDIVIDUAL
+          example: INDIVIDUAL
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+        nameOnAccount:
+          type: string
+        accountHolderPhoneNumber:
+          type: string
+        accountType:
+          type: string
+          enum:
+            - poupanca
+            - corrente
+        cpfCnpj:
+          type: string
+          description: CPF or CNPJ
+        bankCode:
+          type: string
+        bankName:
+          type: string
+        branchCode:
+          type: string
+        dob:
+          type: string
+          description: DOB
+        cep:
+          type: string
+          description: CEP
+        sendingReason:
+          type: string
+          description: Reason for Payment
+        senderName:
+          type: string
+          description: Sender Name
+        beneficiaryAddress:
+          type: string
+          description: Residential Address
+        beneficiaryEmailAddress:
+          type: string
+        beneficiaryPostal:
+          type: string
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - paymentType
+        - nameOnAccount
+        - accountHolderPhoneNumber
+        - accountType
+        - cpfCnpj
+        - bankCode
+        - branchCode
+    BRCorporateBankAccount:
+      title: BR Corporate Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+          example: INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - BR
+          example: BR
+        currency:
+          type: string
+          enum:
+            - BRL
+          example: BRL
+        beneficiaryType:
+          type: string
+          enum:
+            - CORPORATE
+          example: CORPORATE
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+        nameOnAccount:
+          type: string
+        accountHolderPhoneNumber:
+          type: string
+        accountType:
+          type: string
+          enum:
+            - poupanca
+            - corrente
+        cpfCnpj:
+          type: string
+          description: CPF or CNPJ
+        bankCode:
+          type: string
+        branchCode:
+          type: string
+        shareholderFullName:
+          type: string
+          description: Shareholder Full Name
+        shareholderCpf:
+          type: string
+          description: Shareholder CPF
+        shareholderDob:
+          type: string
+        shareholderCep:
+          type: string
+        shareholderPhoneNumber:
+          type: string
+        shareholderEmail:
+          type: string
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - paymentType
+        - nameOnAccount
+        - accountHolderPhoneNumber
+        - accountType
+        - cpfCnpj
+        - bankCode
+        - branchCode
+    USIndividualBankAccount:
+      title: US Individual Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - US
+          example: US
+        currency:
+          type: string
+          enum:
+            - USD
+          example: USD
+        beneficiaryType:
+          type: string
+          enum:
+            - INDIVIDUAL
+          example: INDIVIDUAL
+        firstNameOnAccount:
+          type: string
+          example: Billy-Bob
+        lastNameOnAccount:
+          type: string
+          example: Jones
+        accountNumber:
+          type: string
+          description: Bank account number (i.e. checking or savings account number)
+          example: '0'
+        routingNumber:
+          type: string
+          description: Routing Number
+          example: '0'
+        accountType:
+          type: string
+          enum:
+            - CHECKING
+            - SAVINGS
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+        beneficiaryAddress:
+          type: string
+          example: 112 Brannan St
+        beneficiaryAddress2:
+          type: string
+        beneficiaryCity:
+          type: string
+          example: San Francisco
+        beneficiaryState:
+          type: string
+          example: CA
+        beneficiaryPostal:
+          type: string
+          example: '94108'
+        beneficiaryPhoneNumber:
+          type: string
+          example: '+14102239203'
+        beneficiaryDobDay:
+          type: integer
+          example: 15
+        beneficiaryDobMonth:
+          type: integer
+          example: 12
+        beneficiaryDobYear:
+          type: integer
+          example: 1989
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - firstNameOnAccount
+        - lastNameOnAccount
+        - accountNumber
+        - routingNumber
+        - accountType
+    USCorporateBankAccount:
+      title: US Corporate Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - US
+          example: US
+        currency:
+          type: string
+          enum:
+            - USD
+          example: USD
+        beneficiaryType:
+          type: string
+          enum:
+            - CORPORATE
+          example: CORPORATE
+        beneficiaryCompanyName:
+          description: Name on the account
+          type: string
+        beneficiaryEmailAddress:
+          description: Email Address
+          type: string
+        beneficiaryEinTin:
+          description: EIN or TIN
+          type: string
+        accountNumber:
+          type: string
+          description: Bank account number (i.e. checking or savings account number)
+          example: '0'
+        routingNumber:
+          type: string
+          description: Routing Number
+          example: '0'
+        accountType:
+          type: string
+          enum:
+            - CHECKING
+            - SAVINGS
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - beneficiaryCompanyName
+        - beneficiaryEmailAddress
+        - beneficiaryEinTin
+        - accountNumber
+        - routingNumber
+        - accountType
+    CNIndividualBankAccount:
+      title: CN Individual Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+          example: INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - CN
+          example: CN
+        currency:
+          type: string
+          enum:
+            - CNY
+          example: CNY
+        beneficiaryType:
+          type: string
+          enum:
+            - INDIVIDUAL
+          example: INDIVIDUAL
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+          example: LOCAL_BANK_TRANSFER
+        nameOnAccount:
+          type: string
+        accountNumber:
+          type: string
+        bankCode:
+          type: string
+        bankName:
+          type: string
+        branchName:
+          type: string
+        bankCity:
+          type: string
+        bankProvince:
+          type: string
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+        chineseNationalIdNumber:
+          type: string
+          minLength: 1
+        senderName:
+          type: string
+          minLength: 1
+        senderAddress:
+          type: string
+          minLength: 1
+        senderCity:
+          type: string
+          minLength: 1
+        senderCountry:
+          type: string
+          minLength: 1
+        senderPhoneNumber:
+          type: string
+          minLength: 1
+        sendingReason:
+          type: string
+          minLength: 1
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - paymentType
+        - nameOnAccount
+        - accountNumber
+        - bankName
+        - bankCode
+        - branchName
+        - bankCity
+        - bankProvince
+    CNCorporateBankAccount:
+      title: CN Corporate Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+          example: INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - CN
+          example: CN
+        currency:
+          type: string
+          enum:
+            - CNY
+          example: CNY
+        beneficiaryType:
+          type: string
+          enum:
+            - CORPORATE
+          example: CORPORATE
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+          example: LOCAL_BANK_TRANSFER
+        nameOnAccount:
+          type: string
+        accountNumber:
+          type: string
+        bankCode:
+          type: string
+        bankName:
+          type: string
+        branchName:
+          type: string
+        bankCity:
+          type: string
+        bankProvince:
+          type: string
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - paymentType
+        - nameOnAccount
+        - accountNumber
+        - bankName
+        - bankCode
+        - branchName
+        - bankCity
+        - bankProvince
+    AUBankAccount:
+      title: AU Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+          example: INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - AU
+          example: AU
+        currency:
+          type: string
+          enum:
+            - AUD
+            - USD
+            - GBP
+            - EUR
+          example: AUD
+        beneficiaryType:
+          type: string
+          enum:
+            - INDIVIDUAL
+            - CORPORATE
+          example: INDIVIDUAL
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+          example: LOCAL_BANK_WIRE
+        nameOnAccount:
+          type: string
+          description: Name on account
+        accountNumber:
+          type: string
+          description: Account Number
+        bsbNumber:
+          type: string
+          description: Account Number
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - paymentType
+        - nameOnAccount
+        - accountNumber
+        - bsbNumber
+    MXIndividualBankAccount:
+      title: MX Individual Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+          example: INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - MX
+          example: MX
+        currency:
+          type: string
+          enum:
+            - MXN
+          example: MXN
+        beneficiaryType:
+          type: string
+          enum:
+            - INDIVIDUAL
+          example: INDIVIDUAL
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+          example: LOCAL_BANK_TRANSFER
+        firstNameOnAccount:
+          type: string
+        lastNameOnAccount:
+          type: string
+        clabe:
+          type: string
+          description: CLABE
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - paymentType
+        - firstNameOnAccount
+        - lastNameOnAccount
+        - clabe
+    MXCorporateBankAccount:
+      title: MX Corporate Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+          example: INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - MX
+          example: MX
+        currency:
+          type: string
+          enum:
+            - MXN
+          example: MXN
+        beneficiaryType:
+          type: string
+          enum:
+            - CORPORATE
+          example: CORPORATE
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+          example: LOCAL_BANK_TRANSFER
+        firstNameOnAccount:
+          type: string
+        lastNameOnAccount:
+          type: string
+        clabe:
+          type: string
+          description: CLABE
+        beneficiaryName:
+          type: string
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - paymentType
+        - firstNameOnAccount
+        - lastNameOnAccount
+        - clabe
+        - beneficiaryName
+    SwiftBankAccount:
+      title: Swift Bank Account
+      properties:
+        paymentMethodType:
+          type: string
+          enum:
+            - INTERNATIONAL_TRANSFER
+          example: INTERNATIONAL_TRANSFER
+        country:
+          type: string
+          enum:
+            - UK
+            - QA
+            - GB
+            - AT
+            - BE
+            - CY
+            - EE
+            - FI
+            - FR
+            - DE
+            - GR
+            - IE
+            - IT
+            - LV
+            - LT
+            - LU
+            - MT
+            - NL
+            - PT
+            - SK
+            - SI
+            - ES
+            - US
+            - HK
+          example: UK
+        currency:
+          type: string
+          enum:
+            - EUR
+            - GBP
+            - USD
+            - HKD
+          example: EUR
+        beneficiaryType:
+          type: string
+          enum:
+            - INDIVIDUAL
+            - CORPORATE
+          example: INDIVIDUAL
+        paymentType:
+          type: string
+          enum:
+            - LOCAL_BANK_TRANSFER
+            - LOCAL_BANK_WIRE
+          example: LOCAL_BANK_WIRE
+        firstNameOnAccount:
+          type: string
+        lastNameOnAccount:
+          type: string
+        beneficiaryName:
+          type: string
+        accountNumber:
+          type: string
+          description: IBAN/Account Number
+        swiftBic:
+          type: string
+          description: Swift or BIC
+        chargeablePM:
+          type: boolean
+          default: false
+          example: false
+        senderName:
+          type: string
+        senderAddress:
+          type: string
+        senderCity:
+          type: string
+        senderCountry:
+          type: string
+        senderPhoneNumber:
+          type: string
+        sendingReason:
+          type: string
+        notes:
+          type: string
+      required:
+        - paymentMethodType
+        - country
+        - currency
+        - beneficiaryType
+        - beneficiaryName
+        - paymentType
+        - accountNumber
+        - swiftBic
+    PaymentMethodCreationRequest:
+      title: Payment Method
+      oneOf:
+        - $ref: '#/components/schemas/LocalTransferPlaidProcessorToken'
+        - $ref: '#/components/schemas/BankAccount'
+        - $ref: '#/components/schemas/SwiftBankAccount'
     CreatePaymentMethodRequest:
-      title: CreatePaymentMethodRequest
+      title: Payment Method
       type: object
       example:
         paymentMethodType: INTERNATIONAL_TRANSFER
@@ -11961,45 +12157,17 @@ components:
         beneficiaryCity: San Francisco
         beneficiaryState: CA
         beneficiaryPostal: '94108'
-        beneficiaryPhoneNumber: 14102239203
-        beneficiaryDobDay: '15'
-        beneficiaryDobMonth: '12'
-        beneficiaryDobYear: '1989'
+        beneficiaryPhoneNumber: '+14102239203'
+        beneficiaryDobDay: 15
+        beneficiaryDobMonth: 12
+        beneficiaryDobYear: 1989
         paymentType: LOCAL_BANK_WIRE
         firstNameOnAccount: Billy-Bob
         lastNameOnAccount: Jones
-        accountNumber: 0
-        routingNumber: 0
+        accountNumber: '0'
+        routingNumber: '0'
         accountType: CHECKING
         chargeablePM: 'true'
-      x-examples:
-        International Transfer:
-          value:
-            paymentMethodType: INTERNATIONAL_TRANSFER
-            country: US
-            currency: USD
-            beneficiaryType: INDIVIDUAL
-            beneficiaryAddress: 112 Brannan St
-            beneficiaryAddress2: ''
-            beneficiaryCity: San Francisco
-            beneficiaryState: CA
-            beneficiaryPostal: '94108'
-            beneficiaryPhoneNumber: 14102239203
-            beneficiaryDobDay: '15'
-            beneficiaryDobMonth: '12'
-            beneficiaryDobYear: '1989'
-            paymentType: LOCAL_BANK_WIRE
-            firstNameOnAccount: Billy-Bob
-            lastNameOnAccount: Jones
-            accountNumber: 0
-            routingNumber: 0
-            accountType: CHECKING
-            chargeablePM: 'true'
-        Local Transfer:
-          value:
-            plaidProcessorToken: processor-sandbox-0asd1-a92nc
-            paymentMethodType: LOCAL_TRANSFER
-            country: US
       properties:
         paymentMethodType:
           type: string
@@ -12035,16 +12203,16 @@ components:
           example: '94108'
         beneficiaryPhoneNumber:
           type: string
-          example: 14102239203
+          example: '+14102239203'
         beneficiaryDobDay:
           type: integer
-          example: '15'
+          example: 15
         beneficiaryDobMonth:
           type: integer
-          example: '12'
+          example: 12
         beneficiaryDobYear:
           type: integer
-          example: '1989'
+          example: 1989
         paymentType:
           type: string
           example: LOCAL_BANK_WIRE
@@ -12057,10 +12225,10 @@ components:
         accountNumber:
           type: string
           description: Bank account number (i.e. checking or savings account number)
-          example: 0
+          example: '0'
         routingNumber:
           type: string
-          example: 0
+          example: '0'
         accountType:
           type: string
           example: CHECKING
@@ -12082,7 +12250,7 @@ components:
         - routingNumber
         - accountType
     EURTransferDestination:
-      title: EURTransferDestination
+      title: EUR Bank Account
       type: object
       example:
         paymentMethodType: INTERNATIONAL_TRANSFER
@@ -12113,37 +12281,6 @@ components:
         senderCountry: UKR
         senderPhoneNumber: '+333333333333'
         sendingReason: Reason for sending
-      x-examples:
-        example:
-          value:
-            paymentMethodType: INTERNATIONAL_TRANSFER
-            paymentType: LOCAL_BANK_WIRE
-            currency: EUR
-            country: AUT
-            beneficiaryType: INDIVIDUAL
-            beneficiaryName: beneficiaryName
-            swiftBic: '1234565798'
-            firstNameOnAccount: Sally
-            lastNameOnAccount: Smith
-            beneficiaryAddress: 1234 Main St.
-            beneficiaryAddress2: ''
-            beneficiaryCity: Los Angeles
-            beneficiaryPostal: '91604'
-            beneficiaryPhoneNumber: '+15555555555'
-            beneficaryState: CA
-            beneficiaryDobDay: 2
-            beneficiaryDobMonth: 12
-            beneficiaryDobYear: 1990
-            accountNumber: '1234567890123'
-            routingNumber: '123412312'
-            accountType: CHECKING
-            chargeablePM: false
-            senderName: Sender Name
-            senderAddress: Sender Address
-            senderCity: Lviv
-            senderCountry: UKR
-            senderPhoneNumber: '+333333333333'
-            sendingReason: Reason for sending
       properties:
         paymentMethodType:
           type: string
@@ -12181,16 +12318,16 @@ components:
           example: '94108'
         beneficiaryPhoneNumber:
           type: string
-          example: 14102239203
+          example: '+14102239203'
         beneficiaryDobDay:
           type: integer
-          example: '15'
+          example: 15
         beneficiaryDobMonth:
           type: integer
-          example: '12'
+          example: 12
         beneficiaryDobYear:
           type: integer
-          example: '1989'
+          example: 1989
         firstNameOnAccount:
           type: string
           example: Billy-Bob
@@ -12200,10 +12337,10 @@ components:
         accountNumber:
           type: string
           description: Bank account number (i.e. checking or savings account number)
-          example: 0
+          example: '0'
         routingNumber:
           type: string
-          example: 0
+          example: '0'
         accountType:
           type: string
           example: CHECKING
@@ -12228,46 +12365,9 @@ components:
         - paymentMethodType
         - country
     CNYTransferDestination:
+      title: CNY Bank Account
       description: ''
       type: object
-      x-examples:
-        example:
-          paymentMethodType: INTERNATIONAL_TRANSFER
-          paymentType: LOCAL_BANK_WIRE
-          currency: CNY
-          country: CN
-          beneficiaryType: INDIVIDUAL
-          beneficiaryName: beneficiaryNameTestName
-          swiftBic: '1234565798'
-          bankName: Chinese bank
-          branchName: 双出双出
-          branchCode: 双出双出
-          bankCity: Tokyo
-          bankProvince: Jojo
-          bankCode: BOC
-          chineseNationalIdNumber: '340215697854632145'
-          notes: test note text
-          firstNameOnAccount: Sally
-          lastNameOnAccount: Smith
-          beneficiaryAddress: 1234 Main St.
-          beneficiaryAddress2: ''
-          beneficiaryCity: Los Angeles
-          beneficiaryPostal: '91604'
-          beneficiaryPhoneNumber: '+15555555555'
-          beneficaryState: CA
-          beneficiaryDobDay: 2
-          beneficiaryDobMonth: 12
-          beneficiaryDobYear: 1990
-          accountNumber: '1234567890123'
-          routingNumber: '123412312'
-          accountType: CHECKING
-          chargeablePM: false
-          senderName: ',Andrii,'
-          senderAddress: 'Some, ,st.'
-          senderCity: Lviv
-          senderCountry: UKR
-          senderPhoneNumber: '+380980100683'
-          sendingReason: ',Some, sending,, reason,,,'
       properties:
         paymentMethodType:
           type: string
@@ -12408,7 +12508,6 @@ components:
         - senderCountry
         - senderPhoneNumber
         - sendingReason
-      title: CNYTransferDestination
     CreatePaymentMethodResponse:
       title: CreatePaymentMethodResponse
       required:
@@ -12598,85 +12697,6 @@ components:
         blockchains: {}
         liquidationBalances: {}
         srn: 'paymentmethod:PA_C93QR8QNDAV'
-      x-examples:
-        Local Transfer:
-          value:
-            id: PA_C93QR8QNDAV
-            owner: 'account:AC_XX38VYXUA84'
-            createdAt: 1628877860703
-            name: Plaid Checking 0000
-            defaultCurrency: USD
-            fingerprint: BANK-vuXcdw7k55S2zkd6C0vxXxDQcSqSNaT7yDyfqw0U8+I=
-            status: PENDING
-            statusMessage: null
-            waitingPrompts: []
-            linkType: LOCAL_TRANSFER
-            beneficiaryType: UNKNOWN
-            supportsDeposit: true
-            nameOnMethod: Billy-Bob Jones
-            last4Digits: '0000'
-            brand: null
-            expirationDisplay: null
-            countryCode: US
-            nickname: null
-            rejectionMessage: null
-            disabled: false
-            supportsPayment: true
-            chargeableCurrencies:
-              - USD
-            depositableCurrencies:
-              - USD
-            chargeFeeSchedule: null
-            depositFeeSchedule: null
-            minCharge: null
-            maxCharge: null
-            minDeposit: null
-            maxDeposit: null
-            documents: []
-            blockchains: {}
-            liquidationBalances: {}
-            srn: 'paymentmethod:PA_C93QR8QNDAV'
-        International Transfer:
-          value:
-            id: PA_C93QR8QNDAV
-            owner: 'account:AC_YV8LCV3C9HZ'
-            createdAt: 1628877860703
-            name: USD Bank account ending in 0000
-            defaultCurrency: USD
-            fingerprint: BANK-vuXcdw7k55S2zkd6C0vxXxDQcSqSNaT7yDyfqw0U8+I=
-            status: AWAITING_FOLLOWUP
-            statusMessage: null
-            waitingPrompts:
-              - id: 8VY7PXCR2MC
-                prompt: Upload a bank statement
-                responses: []
-                type: DOCUMENT
-            linkType: INTERNATIONAL_TRANSFER
-            beneficiaryType: INDIVIDUAL
-            supportsDeposit: true
-            nameOnMethod: Billy-Bob Jones
-            last4Digits: '0000'
-            brand: null
-            expirationDisplay: null
-            countryCode: US
-            nickname: null
-            rejectionMessage: null
-            disabled: false
-            supportsPayment: true
-            chargeableCurrencies:
-              - USD
-            depositableCurrencies:
-              - USD
-            chargeFeeSchedule: null
-            depositFeeSchedule: null
-            minCharge: null
-            maxCharge: null
-            minDeposit: null
-            maxDeposit: null
-            documents: []
-            blockchains: {}
-            liquidationBalances: {}
-            srn: 'paymentmethod:PA_C93QR8QNDAV'
     GetWireTransferInstructionsResponse:
       title: GetWireTransferInstructionsResponse
       required:
@@ -12824,8 +12844,8 @@ components:
           type: string
           example: USD Wire Transfer
         totalFees:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 0
         equivalencies:
           $ref: '#/components/schemas/Equivalencies1'
@@ -13041,125 +13061,163 @@ components:
       properties:
         CLP:
           type: number
+          format: double
           example: 73329.84
         AUD:
           type: number
+          format: double
           example: 129.4
         LINK:
           type: number
+          format: double
           example: 3.77216144851
         ARS:
           type: number
+          format: double
           example: 8826.13
         GBP:
           type: number
+          format: double
           example: 72.5
         INR:
           type: number
+          format: double
           example: 7286.98
         COMP:
           type: number
+          format: double
           example: 0.208528829110625
         PAX:
           type: number
+          format: double
           example: 100
         HUSD:
           type: number
+          format: double
           example: 100
         LBTC:
           type: number
+          format: double
           example: 0.002136
         BTC:
           type: number
+          format: double
           example: 0.00213707
         TRY:
           type: number
+          format: double
           example: 707.52
         CRV:
           type: number
+          format: double
           example: 31.4465408805031
         UMA:
           type: number
+          format: double
           example: 3.51493848857645
         CHF:
           type: number
+          format: double
           example: 89.26
         JPY:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 10458
         USDS:
           type: number
+          format: double
           example: 100
         ISK:
           type: number
+          format: double
           example: 12764.01
         COP:
           type: number
+          format: double
           example: 357630
         WBTC:
           type: number
+          format: double
           example: 0.00215027
         HKD:
           type: number
+          format: double
           example: 775.17
         NOK:
           type: number
+          format: double
           example: 846.06
         CZK:
           type: number
+          format: double
           example: 2125.93
         AAVE:
           type: number
+          format: double
           example: 0.204658016454505
         MKR:
           type: number
+          format: double
           example: 0.0398285778011439
         UNI:
           type: number
+          format: double
           example: 5.15463917525773
         PLN:
           type: number
+          format: double
           example: 369.74
         SNX:
           type: number
+          format: double
           example: 4.28082191780822
         NZD:
           type: number
+          format: double
           example: 138.22
         KRW:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 111154
         MXN:
           type: number
+          format: double
           example: 2009.67
         BUSD:
           type: number
+          format: double
           example: 100
         CNY:
           type: number
+          format: double
           example: 643.53
         GUSD:
           type: number
+          format: double
           example: 100
         THB:
           type: number
+          format: double
           example: 2991.03
         YFI:
           type: number
+          format: double
           example: 0.00304769149559974
         USD:
           type: number
+          format: double
           example: 100
         USDC:
           type: number
+          format: double
           example: 100
         DKK:
           type: number
+          format: double
           example: 614.38
         MYR:
           type: number
+          format: double
           example: 404.9
         CAD:
           type: number
@@ -13300,8 +13358,8 @@ components:
           type: number
           example: 0
         JPY:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 0
         USDS:
           type: number
@@ -13343,8 +13401,8 @@ components:
           type: number
           example: 0
         KRW:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 0
         MXN:
           type: number
@@ -13464,8 +13522,8 @@ components:
           type: number
           example: 100
         fees:
-          type: integer
-          format: int32
+          type: number
+          format: double
           example: 0
         txId:
           type: string
@@ -13586,7 +13644,7 @@ components:
           example: 866.395.2754
         routingNumber:
           type: string
-          example: 84106768
+          example: '84106768'
         accountNumber:
           type: string
           example: '9827813073'
@@ -13666,7 +13724,7 @@ components:
           example: 866.395.2754
         routingNumber:
           type: string
-          example: 84106768
+          example: '84106768'
         accountNumber:
           type: string
           example: '9827813073'
@@ -13717,15 +13775,15 @@ components:
           beneficiaryCity: San Francisco
           beneficiaryState: CA
           beneficiaryPostal: '94108'
-          beneficiaryPhoneNumber: 14102239203
-          beneficiaryDobDay: '15'
-          beneficiaryDobMonth: '12'
-          beneficiaryDobYear: '1989'
+          beneficiaryPhoneNumber: '+14102239203'
+          beneficiaryDobDay: 15
+          beneficiaryDobMonth: 12
+          beneficiaryDobYear: 1989
           paymentType: LOCAL_BANK_WIRE
           firstNameOnAccount: Billy-Bob
           lastNameOnAccount: Jones
-          accountNumber: 0
-          routingNumber: 0
+          accountNumber: '0'
+          routingNumber: '0'
           accountType: CHECKING
           bankName: Bank of America
         sourceCurrency: BRL
@@ -13743,7 +13801,7 @@ components:
           example: USD
         destAmount:
           type: number
-          format: int32
+          format: double
           example: 10
         message:
           type: string
@@ -13757,74 +13815,12 @@ components:
         - destCurrency
         - destAmount
     Dest:
-      title: Dest
-      type: object
-      properties:
-        paymentMethodType:
+      anyOf:
+        - properties: {}
+          title: string
           type: string
-          example: INTERNATIONAL_TRANSFER
-        country:
-          type: string
-          example: US
-        currency:
-          type: string
-          example: USD
-        beneficiaryType:
-          type: string
-          example: INDIVIDUAL
-        beneficiaryAddress:
-          type: string
-          example: 112 Brannan St
-        beneficiaryAddress2:
-          type: string
-        beneficiaryCity:
-          type: string
-          example: San Francisco
-        beneficiaryState:
-          type: string
-          example: CA
-        beneficiaryPostal:
-          type: string
-          example: '94108'
-        beneficiaryPhoneNumber:
-          type: string
-          example: 14102239203
-        beneficiaryDobDay:
-          type: string
-          example: '15'
-        beneficiaryDobMonth:
-          type: string
-          example: '12'
-        beneficiaryDobYear:
-          type: string
-          example: '1989'
-        paymentType:
-          type: string
-          example: LOCAL_BANK_WIRE
-        firstNameOnAccount:
-          type: string
-          example: Billy-Bob
-        lastNameOnAccount:
-          type: string
-          example: Jones
-        accountNumber:
-          type: string
-          example: 0
-        routingNumber:
-          type: string
-          example: 0
-        accountType:
-          type: string
-          example: CHECKING
-        bankName:
-          type: string
-          example: Bank of America
-      required:
-        - paymentMethodType
-        - country
-        - currency
-        - paymentType
-        - accountNumber
+          description: 'An account, wallet, digital currency address or bank account SRN to send the digital currency to. (e.g. for a bitcoin address use `bitcoin:[address]`)'
+        - $ref: '#/components/schemas/PaymentMethodCreationRequest'
     CreatePayoutResponse:
       title: CreatePayoutResponse
       required:
@@ -14713,7 +14709,7 @@ components:
         beneficiaryType: UNKNOWN
         supportsDeposit: true
         nameOnMethod: ''
-        last4Digits: 0
+        last4Digits: '0'
         brand: ''
         expirationDisplay: ''
         countryCode: US
