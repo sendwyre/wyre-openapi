@@ -6618,6 +6618,10 @@ components:
           type: string
           description: Account identifier of the owner of the authentication
           example: AC_XXXXXXXXXX
+        owner:
+          type: string
+          description: User SRN for the user you would like to create the reservation on behalf of
+          example: 'user:US_EABWNLUDNNG'
         referenceId:
           type: string
           description: Your own optional reference identifier (useful for webhooks)
