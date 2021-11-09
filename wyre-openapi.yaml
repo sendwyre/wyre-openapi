@@ -1679,7 +1679,7 @@ paths:
                     paymentMethodType: INTERNATIONAL_TRANSFER
                     paymentType: LOCAL_BANK_WIRE
                     currency: EUR
-                    country: AUT
+                    country: AT
                     beneficiaryType: INDIVIDUAL
                     beneficiaryName: beneficiaryName
                     swiftBic: '1234565798'
@@ -6330,6 +6330,63 @@ components:
           type: string
           example: US
           description: Alpha-2 Country Code
+          enum:
+            - US
+            - DZ
+            - AR
+            - AU
+            - AT
+            - BE
+            - BO
+            - BR
+            - CA
+            - CL
+            - CO
+            - CR
+            - CY
+            - CZ
+            - DK
+            - DO
+            - EE
+            - FI
+            - FR
+            - DE
+            - GR
+            - HK
+            - IS
+            - IN
+            - ID
+            - IE
+            - IL
+            - IT
+            - JP
+            - LV
+            - LT
+            - LU
+            - MY
+            - MX
+            - NP
+            - NL
+            - NZ
+            - 'NO'
+            - PY
+            - PE
+            - PH
+            - PL
+            - PT
+            - SG
+            - SK
+            - SI
+            - ZA
+            - KR
+            - ES
+            - SE
+            - CH
+            - TZ
+            - TH
+            - TR
+            - GB
+            - VN
       required:
         - street1
         - city
@@ -13627,8 +13684,7 @@ components:
         instructions:
           type: string
           example: |-
-            You can complete the transfer by following these steps:
-
+            You can complete the transfer by following these steps:<br>
             1.) Print or download the details
             2.) Send the exact amount to the bank details listed above (You can send money through online banking or mobile banking, etc.)
             3.) You will receive an email notification with the transfer details
@@ -14079,9 +14135,9 @@ components:
           type: string
           nullable: true
         estimatedArrival:
-          type: string
-          format: date-time
-          example: '1609203315172'
+          type: integer
+          format: int64
+          example: 1609203315172
         blockchainTx:
           type: string
           nullable: true
