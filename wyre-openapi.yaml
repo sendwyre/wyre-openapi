@@ -11432,7 +11432,9 @@ components:
             - LOCAL_TRANSFER
           example: LOCAL_TRANSFER
       required:
+        - country
         - plaidProcessorToken
+        - paymentMethodType
     BankAccount:
       title: Bank Account
       properties:
