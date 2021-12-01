@@ -7586,7 +7586,7 @@ components:
                 type: debit
               transactionIdentifier: ''
           orderRequest:
-            amount: 1.84
+            amount: '1.84'
             destCurrency: ETH
             sourceCurrency: USD
             ipAddress: end_user_ip_address
@@ -7598,14 +7598,20 @@ components:
         partnerId:
           type: string
           minLength: 1
+          description: Wyre partner identifier of the caller
         payload:
           type: object
+          description: The Apple Pay payload and Wyre wallet order
           properties:
             paymentObject:
               type: object
+              title: Apple Pay Payment Request
+              description: The Apple Pay Payment Request
               properties:
                 billingContact:
                   type: object
+                  description: Valid US Billing Address
+                  title: Billing Address
                   properties:
                     addressLines:
                       type: array
@@ -7638,6 +7644,8 @@ components:
                       type: string
                 shippingContact:
                   type: object
+                  description: Valid US Shipping Address
+                  title: Shipping Address
                   properties:
                     addressLines:
                       type: array
@@ -7675,14 +7683,18 @@ components:
                       type: string
                 token:
                   type: object
+                  title: Apple Pay Payment Token
                   properties:
                     paymentData:
+                      title: Payment Data
                       type: object
                       properties:
                         version:
                           type: string
+                          example: EC_v1
                         data:
                           type: string
+                          description: Encrypted payment data
                         signature:
                           type: string
                           minLength: 1
@@ -7699,46 +7711,84 @@ components:
                             - ephemeralPublicKey
                             - publicKeyHash
                             - transactionId
+                      required:
+                        - version
+                        - data
+                        - signature
+                        - header
                     paymentMethod:
                       type: object
                       properties:
                         displayName:
                           type: string
+                          description: 'A string, suitable for display, that describes the card'
+                          example: Visa 1234
                           minLength: 1
                         network:
+                          description: 'A string, suitable for display, that is the name of the payment network backing the card'
                           type: string
                           minLength: 1
                         type:
                           type: string
-                          minLength: 1
+                          description: A value representing the card's type of payment (e.g. `credit` or `debit`)
+                      required:
+                        - displayName
+                        - network
+                        - type
                     transactionIdentifier:
                       type: string
+                  required:
+                    - paymentData
+                    - paymentMethod
+                    - transactionIdentifier
+              required:
+                - billingContact
+                - shippingContact
+                - token
             orderRequest:
               type: object
+              description: The Wyre Wallet Order Request
               properties:
                 amount:
+                  description: The order amount including fees
                   type: string
                 destCurrency:
                   type: string
                   minLength: 1
+                  description: Destination currency code
+                  example: ETH
                 sourceCurrency:
                   type: string
                   minLength: 1
+                  default: USD
                 ipAddress:
                   type: string
                   minLength: 1
+                  example: 123.123.123.123
                 reservationId:
                   type: string
                   minLength: 1
+                  description: The wallet order reservation identifier
                 dest:
                   type: string
                   minLength: 1
+                  description: 'The destination of the order, can be a Wyre SRN (e.g. Account/Wallet SRN) or blockchain address'
                 referenceId:
                   type: string
                   minLength: 1
+                  description: An optional client-side identifier
                 referrerAccountId:
                   type: string
                   minLength: 1
+                  description: Wyre Partner Account Identifier
+              required:
+                - amount
+                - destCurrency
+                - dest
+                - referrerAccountId
+          required:
+            - paymentObject
+            - orderRequest
       required:
         - partnerId
         - payload
