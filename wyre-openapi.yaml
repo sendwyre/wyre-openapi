@@ -6612,7 +6612,7 @@ components:
           example: 'https://www.sendwyre.com/failure'
         paymentMethod:
           type: string
-          description: Possible values are `debit-card` or `apple-pay` or `ach-transfer`
+          description: Possible values= `debit-card` or `apple-pay` or `ach-transfer`
           example: debit-card
         referrerAccountId:
           type: string
