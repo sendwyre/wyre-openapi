@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: readmeio/github-readme-sync@v2
         with:
-          readme-oas-key: ${{ secrets.SPEC_ID }}
+          readme-oas-key: ${{ secrets.README_OAS_KEY }}:${{ secrets.SPEC_ID }}
            
           # OPTIONAL CONFIG, use if necessary
           oas-file-path: './wyre-openapi.yaml'
