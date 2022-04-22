@@ -4071,6 +4071,38 @@ paths:
       servers:
         - url: 'https://api.testwyre.com'
           variables: {}
+  '/v2/plaid/reconnectBank':
+    get:
+      tags:
+        - Payment Methods
+      summary: Re-Authenticate Plaid Payment Method 
+      description: Partner should hit this endpoint when they are notified that a payment method requires re-authentication via exception returned to transfer creation attempt
+      operationId: plaidReconnectBank
+      parameters:
+        - name: paymentMethodId
+          in: query
+          style: form
+          explode: true
+          schema:
+            type: string
+          description: The identifier of the payment method
+          example: PA_XXXXXXXXXXX   
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReconnectBankResponse'
+              examples:
+                example:
+                  value:
+                    url: 'https://www.testwyre.com/l/Q8P3BLF7QX'
+      deprecated: false
+      servers:
+        - url: 'https://api.testwyre.com'
+          variables: {}
   '/v2/transfer/{transferId}':
     get:
       tags:
@@ -12621,6 +12653,18 @@ components:
         - senderCountry
         - senderPhoneNumber
         - sendingReason
+    ReconnectBankResponse:
+      title: ReconnectBankResponse
+      required:
+        - url
+      type: object
+      properties:
+        url:
+          type: string
+          example: "https://www.testwyre.com/l/83A2GF9Y6N"
+          description: URL to send your end user to in order to re-authenticate
+      example:
+        url: "https://www.testwyre.com/l/83A2GF9Y6N"
     CreatePaymentMethodResponse:
       title: CreatePaymentMethodResponse
       required:
