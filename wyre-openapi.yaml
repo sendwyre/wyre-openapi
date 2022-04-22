@@ -4076,7 +4076,7 @@ paths:
       tags:
         - Payment Methods
       summary: Re-Authenticate Plaid Payment Method 
-      description: Partner should hit this endpoint when they are notified that a payment method requires re-authentication via exception returned to transfer creation attempt. This should be used for payment methods using the Plaid legacy flow.
+      description: Partner should hit this endpoint when they are notified that a payment method requires re-authentication via exception returned to transfer creation attempt (RECONNECT_REQUIRED). This should be used for payment methods using the Plaid legacy flow.
       operationId: plaidReconnectBank
       parameters:
         - name: paymentMethodId
