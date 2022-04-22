@@ -5559,8 +5559,8 @@ components:
         debitCard:
           number: '4111111111111111'
           year: '2023'
-          month: 1
-          cvv: '123'
+          month: 10
+          cvv: '555'
         reservationId: 9BTU8777E4YXFMRCYBTM
         amount: '10'
         sourceCurrency: USD
