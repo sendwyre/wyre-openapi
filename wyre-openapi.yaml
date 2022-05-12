@@ -12199,30 +12199,185 @@ components:
         country:
           type: string
           enum:
-            - UK
-            - QA
-            - GB
+            - AD
+            - AE
+            - AG
+            - AL
+            - AM
+            - AQ
+            - AR
             - AT
+            - AU
+            - AW
+            - AX
+            - AZ
+            - BD
             - BE
+            - BF
+            - BG
+            - BH
+            - BI
+            - BJ
+            - BL
+            - BM
+            - BN
+            - BO
+            - BQ
+            - BS
+            - BT
+            - BV
+            - BW
+            - BZ
+            - CA
+            - CC
+            - CG
+            - CH
+            - CK
+            - CL
+            - CM
+            - CO
+            - CR
+            - CV
+            - CW
+            - CX
             - CY
-            - EE
-            - FI
-            - FR
+            - CZ
             - DE
+            - DJ
+            - DK
+            - DM
+            - DO
+            - DZ
+            - EE
+            - EG
+            - EH
+            - ES
+            - FI
+            - FK
+            - FM
+            - FO
+            - FR
+            - GA
+            - GB
+            - GD
+            - GE
+            - GF
+            - GG
+            - GH
+            - GI
+            - GL
+            - GM
+            - GN
+            - GP
+            - GQ
             - GR
+            - GS
+            - GT
+            - HK
+            - HM
+            - HN
+            - HR
+            - HU
+            - ID
             - IE
+            - IL
+            - IM
+            - IN
+            - IO
+            - IS
             - IT
-            - LV
+            - JE
+            - JM
+            - JO
+            - JP
+            - KE
+            - KG
+            - KH
+            - KI
+            - KM
+            - KN
+            - KR
+            - KW
+            - KY
+            - KZ
+            - LC
+            - LI
+            - LK
+            - LS
             - LT
             - LU
+            - LV
+            - MA
+            - MC
+            - MD
+            - ME
+            - MF
+            - MG
+            - MH
+            - ML
+            - MN
+            - MO
+            - MP
+            - MQ
+            - MR
+            - MS
             - MT
+            - MU
+            - MV
+            - MW
+            - MY
+            - MZ
+            - NA
+            - NC
+            - NE
+            - NF
+            - NI
             - NL
+            - 'NO'
+            - NP
+            - NR
+            - NU
+            - NZ
+            - OM
+            - PE
+            - PF
+            - PH
+            - PK
+            - PL
+            - PM
+            - PN
+            - PR
+            - PS
             - PT
-            - SK
+            - PY
+            - QA
+            - RE
+            - RO
+            - RW
+            - SA
+            - SB
+            - SE
+            - SG
+            - SH
             - SI
-            - ES
+            - SJ
+            - SK
+            - SL
+            - SM
+            - SN
+            - SR
+            - TC
+            - TG
+            - TK
+            - TZ
+            - UG
+            - UK
+            - UM
             - US
-            - HK
+            - VA
+            - VG
+            - VN
+            - WF
           example: UK
         currency:
           type: string
