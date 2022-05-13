@@ -2258,7 +2258,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSwapResponse'
               examples:
-                example:
+                Refunded Example:
                   value:
                     id: SW_6H33HP4D8AG
                     owner: 'user:US_BDLD3GBQV2M'
@@ -2317,6 +2317,37 @@ paths:
                         destAmount: 0.000001
                         transferStatus: COMPLETED
                         networkTxId: ''
+                  
+                Completed Example:
+                    value:
+                      id: 'SW_6W42ZTHZ682'
+                      owner: 'user:US_4PMWPPJ9PET'
+                      status: COMPLETED
+                      sourceCurrency: ETH
+                      destCurrency: XLM
+                      dest: 'stellar: GC7O2CYMRGDYWRKJ4AYVGPB6MDUWFUFZ5R2NQBV7FVFOTRBEB573LAJI'
+                      refundTo: 'ethereum:0xDf9f41c57f12b591671E0f02F41121CecE079e2E'
+                      fundingAddress: 'ethereum:0xe94b635f28e4997df4551b808e86e9d012dc2ced'
+                      createdAt: 1652123509000
+                      updatedAt: 1652123613000
+                      expiresAt: 1652382709000
+                      swapTransfers:  
+                      - id: JR2DR24PXT423332323
+                        swapId: SW_6W42ZTHZ682
+                        transferId: TR_ZYYWJRWL2PR
+                        type: SWAP
+                        reason: null
+                        refundedTo: null
+                        createdAt: 1652123594000
+                        source: swap:SW_6W42ZTHZ682
+                        dest: 'stellar:GC7O2CYMRGDYWRKJ4AYVGPB6MDUWFUFZ5R2NQBV7FVFOTRBEB573LAJI'
+                        sourceCurrency: ETH
+                        destCurrency: XLM
+                        sourceAmount: 0.1
+                        destAmount: 1566.941035814004021254
+                        transferStatus: COMPLETED
+                        networkTxId: 'e8077a7f3c854444e241e4017d661621c87d911a440953d2a2f775a6a1aa1ff0'
+                      networkTxId: '0x4f3b004926be81c99914d5e2abd22c9c80a3e7f6ca953ffe6f7366f9d7bdf62c'
       deprecated: false
       servers:
         - url: 'https://api.testwyre.com'
