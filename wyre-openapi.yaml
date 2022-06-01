@@ -194,6 +194,7 @@ paths:
               sourceCurrency: USD
               destCurrency: ETH
               redirectUrl: 'https://www.sendwyre.com/success'
+              autoRedirect: true
               failureRedirectUrl: 'https://www.sendwyre.com/failure'
               referrerAccountId: AC_YV8LCV3C9HZ
               dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
@@ -6602,6 +6603,7 @@ components:
         sourceCurrency: USD
         destCurrency: ETH
         redirectUrl: 'https://www.sendwyre.com/success'
+        autoRedirect: true
         failureRedirectUrl: 'https://www.sendwyre.com/failure'
         referrerAccountId: AC_YV8LCV3C9HZ
         dest: 'ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341'
@@ -6669,6 +6671,10 @@ components:
           type: string
           description: Any valid HTTP URL
           example: 'https://www.sendwyre.com/success'
+        autoRedirect:
+          type: boolean
+          description: Automatically trigger the redirectUrl upon WOR success when true, bypassing Wyre success page
+          example: true 
         failureRedirectUrl:
           type: string
           description: Any valid HTTP URL
