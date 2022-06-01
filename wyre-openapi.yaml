@@ -713,12 +713,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetAuthorizationResponse'
               examples:
-                example:
+                SMS Needed Example:
                   value:
                     walletOrderId: WO_9PUXWLZD888
                     smsNeeded: true
                     card2faNeeded: false
                     authorization3dsUrl: null
+                Auth via 3DS Example:
+                  value:
+                    walletOrderId: WO_V4VXVBJQLF
+                    smsNeeded: false
+                    card2faNeeded: false
+                    authorization3dsUrl: "https://pay.testwyre.com/bank-authorization/WO_V4VXVBJQLF"
       deprecated: false
       servers:
         - url: 'https://api.testwyre.com'
@@ -745,6 +751,7 @@ paths:
                     month: '01'
                     cvv: '123'
                   reservationId: 9BTU8777E4YXFMRCYBTM
+                  trigger3ds: true
                   amount: '10'
                   sourceCurrency: USD
                   destCurrency: BTC
@@ -5594,6 +5601,7 @@ components:
           month: 10
           cvv: '555'
         reservationId: 9BTU8777E4YXFMRCYBTM
+        trigger3ds: true
         amount: '10'
         sourceCurrency: USD
         destCurrency: BTC
@@ -5616,6 +5624,9 @@ components:
         reservationId:
           type: string
           description: A valid reservation Id generated from the Wallet Order Reservation API
+        trigger3ds:
+          type: boolean
+          description: Use 3ds authorization instead of sms/card2fa when true
         amount:
           type: string
           description: the order amount
