@@ -6673,7 +6673,7 @@ components:
           example: 'https://www.sendwyre.com/success'
         autoRedirect:
           type: boolean
-          description: Automatically trigger the redirectUrl upon WOR success when true, bypassing Wyre success page
+          description: Automatically trigger the redirectUrl upon WOR success when true, bypassing Wyre success page 
           example: true 
         failureRedirectUrl:
           type: string
