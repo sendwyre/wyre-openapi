@@ -11875,6 +11875,7 @@ components:
         - accountNumber
         - routingNumber
         - accountType
+        - beneficiaryAddress
     USCorporateBankAccount:
       title: US Corporate Bank Account
       properties:
@@ -11900,6 +11901,9 @@ components:
         beneficiaryCompanyName:
           description: Name on the account
           type: string
+        beneficiaryAddress:
+          type: string
+          example: 112 Brannan St
         beneficiaryEmailAddress:
           description: Email Address
           type: string
@@ -11939,6 +11943,7 @@ components:
         - accountNumber
         - routingNumber
         - accountType
+        - beneficiaryAddress
     CNIndividualBankAccount:
       title: CN Individual Bank Account
       properties:
@@ -12453,6 +12458,9 @@ components:
           type: string
         beneficiaryName:
           type: string
+        beneficiaryAddress:
+          type: string
+          example: 112 Brannan St
         accountNumber:
           type: string
           description: IBAN/Account Number
@@ -12486,6 +12494,7 @@ components:
         - paymentType
         - accountNumber
         - swiftBic
+        - beneficiaryAddress
     PaymentMethodCreationRequest:
       title: Payment Method
       oneOf:
