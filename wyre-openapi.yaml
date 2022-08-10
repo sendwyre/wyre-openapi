@@ -5640,7 +5640,6 @@ components:
         - familyName
         - email
         - phone
-        - referenceId
         - ipAddress
         - address
     CreateMultipleWalletsRequest:
@@ -6117,6 +6116,7 @@ components:
           description: "This optional flag, when true, will disable all outbound emails and messages to the destination"
       required:
         - source
+        - dest
         - sourceCurrency
         - destCurrency
       description: ""
