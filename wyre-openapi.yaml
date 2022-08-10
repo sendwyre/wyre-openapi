@@ -5640,7 +5640,6 @@ components:
         - familyName
         - email
         - phone
-        - referenceId
         - ipAddress
         - address
     CreateMultipleWalletsRequest:
