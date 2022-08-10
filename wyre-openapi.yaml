@@ -4435,7 +4435,7 @@ paths:
             example: PA_W7YN28ABCHT
       requestBody:
         content:
-          multipart/form-data:
+          application/pdf:
             encoding: {}
             schema:
               required:
