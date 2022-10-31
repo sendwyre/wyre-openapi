@@ -781,20 +781,22 @@ paths:
               examples:
                 example:
                   value:
-                    id: WO_ELTUVYCAFPG
-                    createdAt: 1576263687643
-                    owner: "account:AC_RNWQNRAZFPC"
-                    status: PROCESSING
-                    transferId: TF_MDA6MAY848D
-                    sourceAmount: 1.84
+                    id: WO_TBFQRFMJ6Q
+                    createdAt: 1667243925956
+                    owner: account:AC_XRNGHME6A72
+                    status: RUNNING_CHECKS
+                    orderType: DOMESTIC
+                    sourceAmount: 15
+                    purchaseAmount: 10
                     sourceCurrency: USD
-                    destCurrency: ETH
-                    dest: "ethereum:0x9E01E0E60dF079136a7a1d4ed97d709D5Fe3e341"
-                    walletType: APPLE_PAY
-                    email: user@company.com
-                    errorMessage: null
-                    accountId: AC_RNWQNRAZFPC
-                    paymentMethodName: Visa 2942
+                    destCurrency: BTC
+                    transferId: null
+                    dest: "bitcoin:tb1q6yn0ajs733xsk25vefrhwjey4629qt9c67y6ma"
+                    authCodesRequested: false
+                    blockchainNetworkTx: null
+                    authenticationUrl: "https://pay.testwyre.com/authentication/WO_TBFQRFMJ6Q?accountId=AC_RYMU7EZFFJY&reservation=HZT9DUXCPJ2HBLAP6T4R&customerId=AC_XRNGHME6A72&autoRedirect=false&redirectUrl=&failureRedirectUrl=&flow=CARD_API"
+                    accountId: AC_XRNGHME6A72
+                    paymentMethodName: null
       deprecated: false
       servers:
         - url: "https://api.testwyre.com"
