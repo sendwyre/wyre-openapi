@@ -6638,6 +6638,8 @@ components:
           example:
             - BTC
             - ETH
+          items:
+            type: string
         dest:
           type: string
           description: SRN of appropriate destination
