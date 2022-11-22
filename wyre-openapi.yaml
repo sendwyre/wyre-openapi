@@ -6604,7 +6604,7 @@ components:
           example: ETH
         restrictedDestCurrencies:
           type: array
-          description: Restrict the cryptocurrencies shown in the widget to what you desire
+          description: Restrict the cryptocurrencies shown in the widget to what you desire. An array of strings of your chosen cryptos. Example) [BTC, ETH, CRV]
           example:
             - BTC
             - ETH
