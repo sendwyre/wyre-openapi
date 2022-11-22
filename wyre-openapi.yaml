@@ -6632,6 +6632,12 @@ components:
           type: string
           description: Destination currency to be supplied
           example: ETH
+        restrictedDestCurrencies:
+          type: array
+          description: Restrict the cryptocurrencies shown in the widget to what you desire
+          example:
+            - BTC
+            - ETH
         dest:
           type: string
           description: SRN of appropriate destination
