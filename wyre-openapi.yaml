@@ -3009,7 +3009,7 @@ paths:
     get:
       tags:
         - Accounts
-      summary: GET Master Account Balances
+      summary: Get Master Account Balances
       description: Retrieve balances from your master account
       operationId: GetAccountMasterBalanceResponse
       parameters:
