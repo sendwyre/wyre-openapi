@@ -2975,6 +2975,34 @@ paths:
       servers:
         - url: "https://api.testwyre.com"
           variables: {}
+  /v2/account/{accountId}/balances:
+    get:
+      tags:
+        - Accounts
+      summary: GET Master Account Balances
+      description: Retrieve balances from your master account
+      operationId: GetAccountMasterBalanceResponse
+      parameters:
+        - name: accountId
+          in: path
+          description: The identifier of the account you wish to retrieve
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: AC_XXXXXXXXXX
+      responses:
+        "200":
+          description: ""
+          headers: {}
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/GetAccountMasterBalanceResponse"
+      deprecated: false
+      servers:
+        - url: "https://api.testwyre.com"
+          variables: {}
   /v2/account:
     get:
       tags:
@@ -10137,6 +10165,30 @@ components:
         owner: "account:AC_YV8LCV3C9HZ"
         createdAt: 1625861799000
         status: PARTIALLY_SUBMITTED
+    GetAccountMasterBalanceResponse:
+      title: GetAccountMasterBalanceResponse
+      required:
+        - totalBalances
+        - availableBalances
+      type: object
+      properties:
+        totalBalances:
+          type: number
+          example: 
+           USD: 965315.65,
+           MXN: 1860.69
+        availableBalances:
+          type: number
+          example: 
+           USD: 885115.65,
+           MXN: 860.69
+      example:
+        totalBalances:
+          USD: 965315.65
+          MXN: 1860.69
+        availableBalances:
+          USD: 885115.65
+          MXN: 860.69
     GetExchangeRatesResponse:
       title: GetExchangeRatesResponse
       type: object
