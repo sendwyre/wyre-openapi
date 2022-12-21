@@ -2998,7 +2998,7 @@ paths:
           content:
             application/json:
               schema:
-                  $ref: "#/components/schemas/GetAccountMasterBalanceResponse"
+                $ref: "#/components/schemas/GetAccountMasterBalanceResponse"
       deprecated: false
       servers:
         - url: "https://api.testwyre.com"
@@ -7487,6 +7487,9 @@ components:
         errorMessage:
           type: string
           nullable: true
+        authenticationUrl:
+          type: string
+          minLength: 1
         accountId:
           type: string
           minLength: 1
@@ -10174,14 +10177,14 @@ components:
       properties:
         totalBalances:
           type: number
-          example: 
-           USD: 965315.65,
-           MXN: 1860.69
+          example:
+            USD: 965315.65,
+            MXN: 1860.69
         availableBalances:
           type: number
-          example: 
-           USD: 885115.65,
-           MXN: 860.69
+          example:
+            USD: 885115.65,
+            MXN: 860.69
       example:
         totalBalances:
           USD: 965315.65
