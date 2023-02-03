@@ -3015,7 +3015,7 @@ paths:
       parameters:
         - name: accountId
           in: path
-          description: The identifier of the account you wish to retrieve
+          description: The identifier of the account you wish to retrieve.
           required: true
           style: simple
           schema:
