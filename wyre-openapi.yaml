@@ -2661,7 +2661,15 @@ paths:
       summary: Create Payment Method
       description: Create a payment method
       operationId: CreatePaymentMethod
-      parameters: []
+      parameters:
+      - name: masqueradeAs
+          in: query
+          description: User ID you want to masquerade as
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: "user:US_3778L0MR9KK"
       requestBody:
         content:
           application/json:
