@@ -2662,7 +2662,7 @@ paths:
       description: Create a payment method
       operationId: CreatePaymentMethod
       parameters:
-      - name: masqueradeAs
+        - name: masqueradeAs
           in: query
           description: User ID you want to masquerade as
           style: form
