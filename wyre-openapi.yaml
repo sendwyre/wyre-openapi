@@ -1130,7 +1130,7 @@ paths:
                         callbackUrl: null
                         name: user4
                         id: WA_XXXXXXXXX4
-                        type: SAVINGS
+                        type: DEFAULT
                       - owner: "account:AC_XXXXXXXXX1"
                         status: null
                         balances:
@@ -1165,43 +1165,6 @@ paths:
                     position: 20
                     recordsTotal: 8
                     recordsFiltered: 8
-                Savings Wallet:
-                  value:
-                    data:
-                      - owner: "account:AC_XAV3CRAC94P"
-                        pendingInterestBalances:
-                          ETH: 0
-                          USDC: 0
-                          BTC: 0
-                          DAI: 0.0016717362257274307
-                        savingRates:
-                          ETH: 0
-                          USDC: 0
-                          BTC: 0
-                          DAI: 0.01
-                        status: null
-                        depositAddresses:
-                          ETH: "0x2ea06b5c0fa2df04ef03f9408c5c9f35c87899c5"
-                          BTC: 1DWTHuPMgRk1LnQvXvuZSAv369KhMSs7Tu
-                          AVAX: X-avax1nn3ax8dfgmy3g80wxxmq5pltacp7ks6qzecuu0
-                          XLM: "GBRNYP3MCASHJYUZLB7ORY37RNEL7Z6B2QATAZ7LGQLCTUU2ZLQVN65A:MBJBTDQARAM"
-                        totalBalances:
-                          DAI: 5.084864353254268
-                        availableBalances:
-                          DAI: 5.084864353254268
-                        pusherChannel: 42ca62bbacb5c1d10eae7a5624ddb5cb
-                        notes: null
-                        callbackUrl: null
-                        srn: "wallet:WA_NA9X2N436GB"
-                        createdAt: 1597778481000
-                        balances:
-                          DAI: 5.084864353254268
-                        name: yolo2020
-                        id: WA_NA9X2N436GB
-                        type: SAVINGS
-                    position: 0
-                    recordsTotal: 1
-                    recordsFiltered: 0
       deprecated: false
       servers:
         - url: "https://api.testwyre.com"
@@ -1225,12 +1188,6 @@ paths:
                   callbackUrl: "https://callback.url"
                   type: DEFAULT
                   notes: User Wallet
-              Savings Wallet:
-                value:
-                  type: SAVINGS
-                  name: your-unique-identifier
-                  callbackUrl: "https://your.website.io/callback"
-                  notes: Notes about the sub account
         required: true
       responses:
         "200":
@@ -1260,45 +1217,6 @@ paths:
                     name: updated-name
                     id: WA_LLU2A847JQ
                     type: DEFAULT
-                Savings Wallet:
-                  value:
-                    owner: "account:AC_XXXXXXXXXX"
-                    pendingInterestBalances:
-                      ETH: 0
-                      DAI: 0
-                      USDC: 0
-                      BTC: 0.00000190099863013697
-                    savingRates:
-                      ETH: 0.04
-                      DAI: 0
-                      USDC: 0.08
-                      BTC: 0.035
-                    status: null
-                    balances:
-                      DAI: 16.83622828784119
-                      USDC: 7.084764
-                      BTC: 0.0026321
-                    createdAt: 1609186777000
-                    pusherChannel: d89ecb3deae49a753c0df3a2166f46dd
-                    srn: "wallet:WA_XXXXXXXXXX"
-                    notes: null
-                    depositAddresses:
-                      ETH: "0x31e5312ca39cdcc855b8e61a35bf75be00f3cc20"
-                      BTC: mxsd7xTcVow7bnxdMhwiyTdWvXKqar1nZG
-                      AVAX: X-avax1nn3ax8dfgmy3g80wxxmq5pltacp7ks6qzecuu0
-                      XLM: "GBRNYP3MCASHJYUZLB7ORY37RNEL7Z6B2QATAZ7LGQLCTUU2ZLQVN65A:MBJBTDQARAM"
-                    totalBalances:
-                      DAI: 16.83622828784119
-                      USDC: 7.084764
-                      BTC: 0.0026321
-                    availableBalances:
-                      DAI: 16.83622828784119
-                      USDC: 7.084764
-                      BTC: 0.0026321
-                    callbackUrl: null
-                    name: unique-user-wallet-id
-                    id: WA_XXXXXXXXXX
-                    type: SAVINGS
       deprecated: false
       servers:
         - url: "https://api.testwyre.com"
@@ -6376,12 +6294,11 @@ components:
           nullable: true
         type:
           type: string
-          description: "The type of wallet you are creating (`DEFAULT`,`ENTERPRISE`, or `SAVINGS`)"
+          description: "The type of wallet you are creating (`DEFAULT` or `ENTERPRISE`)"
           example: DEFAULT
           enum:
             - DEFAULT
             - ENTERPRISE
-            - SAVINGS
           default: DEFAULT
         notes:
           type: string
@@ -8076,7 +7993,7 @@ components:
             callbackUrl: ""
             name: user4
             id: WA_XXXXXXXXX4
-            type: SAVINGS
+            type: DEFAULT
           - owner: "account:AC_XXXXXXXXX1"
             status: ""
             balances:
