@@ -6436,13 +6436,6 @@ components:
           example: AC_XXXXXXXXXX
         address:
           $ref: "#/components/schemas/Address"
-        walletType:
-          type: string
-          description: "Wallet type, must be either `APPLE_PAY` or `DEBIT_CARD`"
-          example: DEBIT_CARD
-          enum:
-            - APPLE_PAY
-            - DEBIT_CARD
         userId:
           type: string
           description: User identifier
