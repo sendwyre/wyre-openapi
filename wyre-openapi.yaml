@@ -133,7 +133,6 @@ paths:
             examples:
               example:
                 value:
-                  walletType: DEBIT_CARD
                   accountId: AC_XXXXXXXXXX
                   sourceCurrency: USD
                   address:
