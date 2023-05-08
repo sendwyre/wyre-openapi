@@ -11931,20 +11931,74 @@ components:
             - LOCAL_BANK_TRANSFER
             - LOCAL_BANK_WIRE
           example: LOCAL_BANK_TRANSFER
+        payerFirstName:
+          type: string
+        payerLastName:
+          type: string
+        payerType:
+          type: string
+          example: INDIVIDUAL      
         nameOnAccount:
           type: string
         accountNumber:
           type: string
+        routingNumber:
+          type: string
+          example: "111111"    
         bankCode:
           type: string
         bankName:
           type: string
+          example: China Bank
         branchName:
           type: string
+          example: 北京分行
+          description: Must be in Chinese characters
         bankCity:
           type: string
         bankProvince:
           type: string
+        payerIdType:
+          type: string
+          description: Must be either ID_CARD  or PASSPORT
+          example: ID_CARD
+        payerIdNumber:
+          type: string
+          description: ID number based on payerIdType. Could be ID card number or passport number
+          example: "1122334455"
+        payerOccupation:
+          type: string
+          description: Required only for INDIVIDUAL payer type.
+          example: daytrader
+        beneficiaryGovernmentIdNumber:
+          type: string
+          description: Beneficiary CN government ID number.
+          example: 1123abc
+        beneficiaryMobileNumber:
+          type: string
+          description: Beneficiary mobile phone number.
+          example: +86 139 1099 8888
+        owner:
+          type: string
+          description: Owner of payment method, could be SRN for account or user. 
+          example: account:AC_ZJJCEMZB342   
+        payerDob:
+          type: string
+          description: Payers date of birth if INDIVIDUAL payer type.
+          example: "2000-04-23T18:25:43.511Z"
+        payerAddress:
+          type: object
+          properties:
+            street1:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            postalCode:
+              type: string
+            country:
+              type: string  
         chargeablePM:
           type: boolean
           default: false
@@ -11983,6 +12037,18 @@ components:
         - branchName
         - bankCity
         - bankProvince
+        - payerIdType
+        - payerIdNumber
+        - payerOccupation
+        - beneficiaryGovernmentIdNumber
+        - beneficiaryMobileNumber
+        - owner
+        - payerDob
+        - payerFirstName
+        - payerLastName
+        - payerType
+        - routingNumber
+        - payerAddress
     CNCorporateBankAccount:
       title: CN Corporate Bank Account
       properties:
@@ -12012,24 +12078,91 @@ components:
             - LOCAL_BANK_TRANSFER
             - LOCAL_BANK_WIRE
           example: LOCAL_BANK_TRANSFER
+        payerFirstName:
+          type: string
+        payerLastName:
+          type: string
+        payerType:
+          type: string
+          example: CORPORATE    
         nameOnAccount:
           type: string
         accountNumber:
           type: string
+        routingNumber:
+          type: string
+          example: "111111"     
         bankCode:
           type: string
         bankName:
           type: string
         branchName:
           type: string
+          example: 北京分行
+          description: Must be in Chinese characters
         bankCity:
           type: string
         bankProvince:
           type: string
+        payerIdType:
+          type: string
+          description: Must be either ID_CARD  or PASSPORT
+          example: ID_CARD
+        payerIdNumber:
+          type: string
+          description: ID number based on payerIdType. Could be ID card number or passport number
+          example: "1122334455"
+        beneficiaryGovernmentIdNumber:
+          type: string
+          description: Beneficiary CN government ID number.
+          example: 1123abc
+        beneficiaryMobileNumber:
+          type: string
+          description: Beneficiary mobile phone number.
+          example: +86 139 1099 8888
+        owner:
+          type: string
+          description: Owner of payment method, could be SRN for account or user. 
+          example: account:AC_ZJJCEMZB342   
+        payerDob:
+          type: string
+          description: Business' establishment date if CORPORATE payer type.
+          example: "2000-04-23T18:25:43.511Z"
+        payerAddress:
+          type: object
+          properties:
+            street1:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            postalCode:
+              type: string
+            country:
+              type: string    
         chargeablePM:
           type: boolean
           default: false
           example: false
+        senderName:
+          type: string
+          minLength: 1
+        senderAddress:
+          type: string
+          minLength: 1
+        senderCity:
+          type: string
+          minLength: 1
+        senderCountry:
+          type: string
+          minLength: 1
+        senderPhoneNumber:
+          type: string
+          minLength: 1
+        sendingReason:
+          type: string
+          minLength: 1  
       required:
         - paymentMethodType
         - country
@@ -12043,6 +12176,17 @@ components:
         - branchName
         - bankCity
         - bankProvince
+        - payerIdType
+        - payerIdNumber
+        - beneficiaryGovernmentIdNumber
+        - beneficiaryMobileNumber
+        - owner
+        - payerDob
+        - payerFirstName
+        - payerLastName
+        - payerType
+        - routingNumber
+        - payerAddress
     AUBankAccount:
       title: AU Bank Account
       properties:
