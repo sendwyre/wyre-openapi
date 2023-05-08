@@ -4375,6 +4375,7 @@ paths:
                         accountType: null
                         iban: null
                       rawStatus: PENDING
+                      wireTransferMemo: E9QXJ
                       status: PENDING
       deprecated: false
       servers:
@@ -13966,6 +13967,7 @@ components:
         - failedReason
         - wireDetails
         - rawStatus
+        - wireTransferMemo
         - status
       type: object
       properties:
@@ -14039,6 +14041,9 @@ components:
         rawStatus:
           type: string
           example: PENDING
+        wireTransferMemo:
+           type: string
+           example: E9QXJ  
         status:
           type: string
           example: PENDING
